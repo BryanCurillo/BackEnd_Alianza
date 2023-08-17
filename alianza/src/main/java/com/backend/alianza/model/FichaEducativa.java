@@ -26,6 +26,9 @@ public class FichaEducativa implements Serializable {
     @Column(name = "centroEducativo")
     private String centroEducativo;
 
+    @Column(name = "direccionEducativa")
+    private String direccionEducativa;
+
     @Column(name = "referenciaEducativa")
     private String referenciaEducativa;
 

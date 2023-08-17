@@ -16,7 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "fichaInstruccion")
-public class FichaInstruccion implements Serializable {
+public class FichaInscripcion implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id

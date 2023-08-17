@@ -35,6 +35,9 @@ public class FichaRepresentante {
     @Column(name = "contactoRepre")
     private String contactoRepre;
 
+    @Column(name = "contactoEmergenciaRepre")
+    private String contactoEmergenciaRepre;
+
     @Column(name = "fechaNacimientoRepre")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
