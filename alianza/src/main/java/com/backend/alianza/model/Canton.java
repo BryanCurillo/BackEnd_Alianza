@@ -29,5 +29,5 @@ public class Canton  implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "idCanton")
-    private List<Canton> listParroquias;
+    private List<Parroquia> listParroquias;
 }

@@ -25,5 +25,5 @@ public class TipoFamilia  implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "idTipoFamilia")
-    private List<FichaPersonal> listFichaFamiliar;
+    private List<FichaFamiliar> listFichaFamiliar;
 }
