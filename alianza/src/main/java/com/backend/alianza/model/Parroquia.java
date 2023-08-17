@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -26,7 +27,8 @@ public class Parroquia implements Serializable {
     @JoinColumn(name = "idCanton", referencedColumnName = "idCanton")
     private Canton idCanton;
 
-//    @JsonIgnore
-    @OneToOne(mappedBy = "idParroquia")
-    private FichaPersonal fichaPersonal;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "idParroquia")
+    private List<FichaPersonal> listFichaPersonal;
 }

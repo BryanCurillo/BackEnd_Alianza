@@ -19,7 +19,7 @@ public class Canton  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCanton;
+    private long idCanton;
 
     private String cantonNombre;
 

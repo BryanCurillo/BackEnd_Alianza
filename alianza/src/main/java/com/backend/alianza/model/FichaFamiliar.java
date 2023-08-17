@@ -42,11 +42,9 @@ public class FichaFamiliar implements Serializable {
 
     private String otrasSituaciones;
 
-    @OneToOne
-    @JoinColumn(name = "idTipoFamilia")
+    @ManyToOne
+    @JoinColumn(name = "idTipoFamilia", referencedColumnName = "idTipoFamilia")
     private TipoFamilia idTipoFamilia;
-
-    //    detalles_discapacidad_ANEXO???
 
 //    private FichaIncripcion id_ficha_inscripcion;
 }

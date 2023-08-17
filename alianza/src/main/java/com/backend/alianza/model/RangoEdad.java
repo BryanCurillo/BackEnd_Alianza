@@ -1,9 +1,11 @@
 package com.backend.alianza.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,7 +25,8 @@ public class RangoEdad  implements Serializable {
 
     private int limSuperior;
 
-    @OneToOne(mappedBy = "idRangoEdad")
-    private FichaPersonal fichaPersonal;
+    @JsonIgnore
+    @OneToMany(mappedBy = "idRangoEdad")
+    private List<FichaPersonal> listFichaPersonal;
 
 }

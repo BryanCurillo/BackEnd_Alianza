@@ -9,10 +9,11 @@ import com.backend.alianza.genericService.GenericService;
 import com.backend.alianza.genericService.GenericServiceImpl;
 
 @Service
-public class FichaFamiliarServiceImpl  extends GenericServiceImpl<FichaFamiliar, Long> implements GenericService<FichaFamiliar, Long> {
+public class FichaFamiliarServiceImpl extends GenericServiceImpl<FichaFamiliar, Long> implements GenericService<FichaFamiliar, Long> {
 
     @Autowired
     private FichaFamiliarRepository repository;
+
     @Override
     public CrudRepository<FichaFamiliar, Long> getDao() {
         return repository;

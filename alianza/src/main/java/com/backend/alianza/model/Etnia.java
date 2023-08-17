@@ -1,9 +1,11 @@
 package com.backend.alianza.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,6 +23,7 @@ public class Etnia  implements Serializable {
 
     private String etniaNombre;
 
-    @OneToOne(mappedBy = "idEtnia")
-    private FichaPersonal fichaPersonal;
+    @JsonIgnore
+    @OneToMany(mappedBy = "idEtnia")
+    private List<FichaPersonal> listFichaPersonal;
 }

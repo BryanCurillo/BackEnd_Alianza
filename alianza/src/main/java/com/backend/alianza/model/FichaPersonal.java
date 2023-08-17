@@ -52,17 +52,19 @@ public class FichaPersonal implements Serializable {
 
     private double coordenadaY;
 
-    @OneToOne
-    @JoinColumn(name = "idRangoEdad")
-    private RangoEdad rangoEdad;
+    @ManyToOne
+    @JoinColumn(name = "idRangoEdad", referencedColumnName = "idRangoEdad")
+    private RangoEdad idRangoEdad;
 
-    @OneToOne
-    @JoinColumn(name = "idEtnia")
-    private Etnia etnia;
+    @ManyToOne
+    @JoinColumn(name = "idEtnia", referencedColumnName = "idEtnia")
+    private Etnia idEtnia;
 
-    @OneToOne
-    @JoinColumn(name = "idParroquia")
-    private Parroquia idParroquia;
+    @ManyToOne
+    @JoinColumn(name = "idParroquia", referencedColumnName = "idParroquia")
+    private Canton idParroquia;
+
+
 
 //    private FichaInscripcion fichaInscripcion;
 
