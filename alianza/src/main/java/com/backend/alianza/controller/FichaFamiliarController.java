@@ -40,7 +40,8 @@ public class FichaFamiliarController {
                 fichaFamiliar.setOrganizacionBeneficio(ff.getOrganizacionBeneficio());
                 fichaFamiliar.setDiscapacidadIntegrantes(ff.isDiscapacidadIntegrantes());
                 fichaFamiliar.setOtrasSituaciones(ff.getOtrasSituaciones());
-                fichaFamiliar.setIdTipoFamilia(ff.getIdTipoFamilia());
+                fichaFamiliar.setFichaInscripcion(ff.getFichaInscripcion());
+                fichaFamiliar.setTipoFamilia(ff.getTipoFamilia());
 
                 return new ResponseEntity<>(service.save(fichaFamiliar), HttpStatus.CREATED);
             } catch (Exception e) {

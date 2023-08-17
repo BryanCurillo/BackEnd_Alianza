@@ -46,11 +46,10 @@ public class FichaPersonalController {
                 fichaPersonal.setReferencia(fp.getReferencia());
                 fichaPersonal.setCoordenadaX(fp.getCoordenadaX());
                 fichaPersonal.setCoordenadaY(fp.getCoordenadaY());
-                fichaPersonal.setIdRangoEdad(fp.getIdRangoEdad());
-                fichaPersonal.setIdEtnia(fp.getIdEtnia());
-                fichaPersonal.setIdParroquia(fp.getIdParroquia());
-
-//                fichaPersonal.setFichaInscripcion(fp.getFichaInscripcion());
+                fichaPersonal.setRangoEdad(fp.getRangoEdad());
+                fichaPersonal.setEtnia(fp.getEtnia());
+                fichaPersonal.setParroquia(fp.getParroquia());
+                fichaPersonal.setFichaInscripcion(fp.getFichaInscripcion());
 
                 return new ResponseEntity<>(service.save(fichaPersonal), HttpStatus.CREATED);
             } catch (Exception e) {

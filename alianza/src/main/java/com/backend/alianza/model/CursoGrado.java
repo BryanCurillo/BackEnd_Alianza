@@ -23,4 +23,8 @@ public class CursoGrado  implements Serializable {
     @Column(name = "nombreCursoGrado")
     private String nombreCursoGrado;
 
+    @ManyToOne
+    @JoinColumn(name = "idFichaEducativa")
+    private FichaEducativa fichaEducativa;
+
 }

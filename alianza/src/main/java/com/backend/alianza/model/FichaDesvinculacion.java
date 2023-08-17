@@ -29,6 +29,12 @@ public class FichaDesvinculacion implements Serializable {
     @Column(name = "motivoDesvinculacion")
     private String motivo;
 
-    @Column(name = "anexosExtrasDesvinculacion", columnDefinition = "LONGTEXT")
+    @Column(name = "anexosExtrasDesvinculacion", columnDefinition = "TEXT")
     private String anexosExtras;
+
+    @ManyToOne
+    @JoinColumn(name = "idFichaInscripcion")
+    private FichaInscripcion fichaInscripcion;
+
+
 }

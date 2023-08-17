@@ -40,6 +40,7 @@ public class FichaSaludController {
                 fichaSalud.setEnfermedadesPrevalentesFichaSalud(a.getEnfermedadesPrevalentesFichaSalud());
                 fichaSalud.setCondicionesMedicas(a.getCondicionesMedicas());
                 fichaSalud.setTipoDiscapacidadFichaSalud(a.getTipoDiscapacidadFichaSalud());
+                fichaSalud.setFichaInscripcion(a.getFichaInscripcion());
 
                 return new ResponseEntity<>(fichaSaludService.save(fichaSalud), HttpStatus.CREATED);
             } catch (Exception e) {

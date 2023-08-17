@@ -25,10 +25,10 @@ public class Parroquia implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "idCanton", referencedColumnName = "idCanton")
-    private Canton idCanton;
+    private Canton canton;
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "idParroquia")
-    private List<FichaPersonal> listFichaPersonal;
+    @OneToMany(mappedBy = "parroquia")
+    private List<FichaPersonal> fichaPersonals;
 }

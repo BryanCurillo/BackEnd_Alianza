@@ -32,7 +32,7 @@ public class CantonController {
         if (canton != null) {
             try {
                 canton.setCantonNombre(c.getCantonNombre());
-                canton.setIdProvincia(c.getIdProvincia());
+                canton.setProvincia(c.getProvincia());
 
                 return new ResponseEntity<>(service.save(canton), HttpStatus.CREATED);
             } catch (Exception e) {

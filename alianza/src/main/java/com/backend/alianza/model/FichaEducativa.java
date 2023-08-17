@@ -1,5 +1,6 @@
 package com.backend.alianza.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -40,4 +42,12 @@ public class FichaEducativa implements Serializable {
 
     @Column(name = "gradoEducativo")
     private String gradoEducativo;
+
+    @ManyToOne
+    @JoinColumn(name = "idFichaInscripcion")
+    private FichaInscripcion fichaInscripcion;
+
+    @OneToMany(mappedBy = "fichaEducativa", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<CursoGrado> cursoGrados;
 }

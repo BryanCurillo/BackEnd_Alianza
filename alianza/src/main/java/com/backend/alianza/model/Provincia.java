@@ -22,6 +22,6 @@ public class Provincia implements Serializable {
     private String provinciaNombre;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "idProvincia")
+    @OneToMany(mappedBy = "provincia")
     private List<Canton> listCantones;
 }

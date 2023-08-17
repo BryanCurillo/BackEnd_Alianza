@@ -32,8 +32,7 @@ public class TipoFamiliaController {
         if (tipoFamilia != null) {
             try {
                 tipoFamilia.setNombreTipo(tf.getNombreTipo());
-
-//                tipoFamilia.setFichaInscripcion(tf.getFichaInscripcion());
+                tipoFamilia.setFichaFamiliars(tf.getFichaFamiliars());
 
                 return new ResponseEntity<>(service.save(tipoFamilia), HttpStatus.CREATED);
             } catch (Exception e) {

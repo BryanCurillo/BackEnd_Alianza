@@ -36,4 +36,8 @@ public class FichaSalud {
     @Column(name = "enfermedadesPrevalentesFichaSalud")
     private  String enfermedadesPrevalentesFichaSalud;
 
+    @ManyToOne
+    @JoinColumn(name = "idFichaInscripcion")
+    private FichaInscripcion fichaInscripcion;
+
 }

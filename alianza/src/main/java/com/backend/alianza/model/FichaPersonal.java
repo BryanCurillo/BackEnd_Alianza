@@ -54,19 +54,19 @@ public class FichaPersonal implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "idRangoEdad", referencedColumnName = "idRangoEdad")
-    private RangoEdad idRangoEdad;
+    private RangoEdad rangoEdad;
 
     @ManyToOne
     @JoinColumn(name = "idEtnia", referencedColumnName = "idEtnia")
-    private Etnia idEtnia;
+    private Etnia etnia;
 
     @ManyToOne
     @JoinColumn(name = "idParroquia", referencedColumnName = "idParroquia")
-    private Parroquia idParroquia;
+    private Parroquia parroquia;
 
-
-
-//    private FichaInscripcion fichaInscripcion;
+    @ManyToOne
+    @JoinColumn(name = "idFichaInscripcion")
+    private FichaInscripcion fichaInscripcion;
 
 
 }

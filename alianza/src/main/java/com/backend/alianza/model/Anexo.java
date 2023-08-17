@@ -22,10 +22,15 @@ public class Anexo implements Serializable {
     @Column(name = "idAnexo")
     private int idAnexo;
 
-    @Column(name = "documentoAnexo", columnDefinition = "LONGTEXT")
+    @Column(name = "documentoAnexo", columnDefinition = "TEXT")
     private String documentoAnexo;
 
     @Column(name = "tipoDocumentoAnexo")
     private String tipoDocumentoAnexo;
+
+
+    @ManyToOne
+    @JoinColumn(name = "idFichaInscripcion")
+    private FichaInscripcion fichaInscripcion;
 
 }

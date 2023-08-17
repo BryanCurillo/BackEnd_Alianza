@@ -25,9 +25,9 @@ public class Canton  implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "idProvincia", referencedColumnName = "idProvincia")
-    private Provincia idProvincia;
+    private Provincia provincia;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "idCanton")
+    @OneToMany(mappedBy = "canton")
     private List<Parroquia> listParroquias;
 }

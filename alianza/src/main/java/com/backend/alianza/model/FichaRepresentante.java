@@ -60,4 +60,8 @@ public class FichaRepresentante {
 
     @Column(name = "parentescoRepre")
     private String parentescoRepre;
+
+    @ManyToOne
+    @JoinColumn(name = "idFichaInscripcion")
+    private FichaInscripcion fichaInscripcion;
 }

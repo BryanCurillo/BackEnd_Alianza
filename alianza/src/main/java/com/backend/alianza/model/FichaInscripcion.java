@@ -1,5 +1,6 @@
 package com.backend.alianza.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Setter
@@ -45,4 +47,32 @@ public class FichaInscripcion implements Serializable {
 
     @Column(name = "jornadaAsistenciaInscrip")
     private String jornadaAsistenciaInscrip;
+
+    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaDesvinculacion> fichaDesvinculacions;
+
+    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Anexo> anexos;
+
+    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaSalud> fichaSaluds;
+
+    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaRepresentante>fichaRepresentantes;
+
+    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaEducativa>fichaEducativas;
+
+    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaFamiliar>fichaFamiliars;
+
+    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaPersonal>fichaPersonals;
 }

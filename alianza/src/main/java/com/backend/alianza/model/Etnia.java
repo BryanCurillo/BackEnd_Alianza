@@ -24,6 +24,6 @@ public class Etnia  implements Serializable {
     private String etniaNombre;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "idEtnia")
-    private List<FichaPersonal> listFichaPersonal;
+    @OneToMany(mappedBy = "etnia")
+    private List<FichaPersonal> fichaPersonals;
 }

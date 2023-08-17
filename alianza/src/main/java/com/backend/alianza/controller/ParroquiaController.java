@@ -32,7 +32,7 @@ public class ParroquiaController {
         if (parroquia != null) {
             try {
                 parroquia.setParroquiaNombre(p.getParroquiaNombre());
-                parroquia.setIdCanton(p.getIdCanton());
+                parroquia.setCanton(p.getCanton());
 
                 return new ResponseEntity<>(service.save(parroquia), HttpStatus.CREATED);
             } catch (Exception e) {

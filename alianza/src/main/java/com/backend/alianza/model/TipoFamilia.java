@@ -24,6 +24,6 @@ public class TipoFamilia  implements Serializable {
     private String nombreTipo;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "idTipoFamilia")
-    private List<FichaFamiliar> listFichaFamiliar;
+    @OneToMany(mappedBy = "tipoFamilia")
+    private List<FichaFamiliar> fichaFamiliars;
 }

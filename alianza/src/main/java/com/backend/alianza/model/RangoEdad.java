@@ -26,7 +26,7 @@ public class RangoEdad  implements Serializable {
     private int limSuperior;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "idRangoEdad")
-    private List<FichaPersonal> listFichaPersonal;
+    @OneToMany(mappedBy = "rangoEdad")
+    private List<FichaPersonal> fichaPersonals;
 
 }
