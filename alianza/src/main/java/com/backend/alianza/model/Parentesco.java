@@ -2,15 +2,24 @@ package com.backend.alianza.model;
 
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Data
+import java.io.Serializable;
+
 @Entity
-public class Parentesco {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="parentesco")
+public class Parentesco implements Serializable {
+
+    private static final long serialVersionUID=1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idParentesco")
-    private int idParentesco;
+    private long idParentesco;
 
     @Column(name = "parentescoNombre")
     private String parentescoNombre;
