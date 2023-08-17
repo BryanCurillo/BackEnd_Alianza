@@ -19,5 +19,5 @@ public class FichaDesvinculacion {
 
     private String motivo;
 
-    private String anexosExtras; //PERDIR EXPLICACION
+    private String anexosExtras; //PERDIR EXPLICACION aaaaaaaaa
 }
