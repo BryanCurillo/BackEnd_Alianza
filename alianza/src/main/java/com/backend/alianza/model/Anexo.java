@@ -1,7 +1,6 @@
 package com.backend.alianza.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,15 +13,17 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="anexo")
-public class Anexo  implements Serializable {
+@Table(name = "anexo")
+public class Anexo implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAnexo;
     private String documento;
     private String tipoPersonalizado;
 
-    private TipoAnexo idTipoAnexo;
+//    private TipoAnexo idTipoAnexo;
 
 }
