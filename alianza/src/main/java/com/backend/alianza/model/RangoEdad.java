@@ -1,20 +1,29 @@
 package com.backend.alianza.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Data
+import java.io.Serializable;
+
 @Entity
-public class RangoEdad {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="rangoEdad")
+public class RangoEdad  implements Serializable {
+
+    private static final long serialVersionUID=1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idRangoEdad;
+    private long idRangoEdad;
 
     private int limInferior;
 
     private int limSuperior;
+
+    @OneToOne(mappedBy = "idRangoEdad")
+    private FichaPersonal fichaPersonal;
 
 }

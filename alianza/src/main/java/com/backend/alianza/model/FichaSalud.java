@@ -1,15 +1,24 @@
 package com.backend.alianza.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Data
+import java.io.Serializable;
+
 @Entity
-public class FichaSalud {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="fichaSalud")
+public class FichaSalud  implements Serializable {
+
+    private static final long serialVersionUID=1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idFichaSalud")
-    private int idFichaSalud;
+    private long idFichaSalud;
 
     @Column(name = "condicionesMedicas")
     private String condicionesMedicas;
@@ -21,7 +30,7 @@ public class FichaSalud {
     private double talla;
 
     @Column(name = "discapacidadNNA")
-    private Boolean discapacidadNNA;
+    private boolean discapacidadNNA;
 
     @Column(name = "tipoDiscapacidad")
     private String tipoDiscapacidad;

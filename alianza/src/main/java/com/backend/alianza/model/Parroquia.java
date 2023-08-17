@@ -1,18 +1,32 @@
 package com.backend.alianza.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Data
+import java.io.Serializable;
+
 @Entity
-public class Parroquia {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="parroquia")
+public class Parroquia implements Serializable {
+
+    private static final long serialVersionUID=1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idParroquia;
+    private long idParroquia;
 
     private String parroquiaNombre;
 
     @ManyToOne
     @JoinColumn(name = "idCanton", referencedColumnName = "idCanton")
     private Canton idCanton;
+
+//    @JsonIgnore
+    @OneToOne(mappedBy = "idParroquia")
+    private FichaPersonal fichaPersonal;
 }

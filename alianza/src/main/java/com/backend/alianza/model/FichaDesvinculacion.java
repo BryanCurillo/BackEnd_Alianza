@@ -1,19 +1,24 @@
 package com.backend.alianza.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
-import java.sql.Date;
+import java.io.Serializable;
+import java.util.Date;
 
-@Data
 @Entity
-public class FichaDesvinculacion {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="fichaDesvinculacion")
+public class FichaDesvinculacion implements Serializable {
+
+    private static final long serialVersionUID=1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idFichaDesvinculacion;
+    private long idFichaDesvinculacion;
 
     private Date fechaDesvinculacion;
 

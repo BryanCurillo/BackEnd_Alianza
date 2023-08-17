@@ -2,13 +2,21 @@ package com.backend.alianza.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
+import java.io.Serializable;
 import java.util.List;
 
-@Data
 @Entity
-public class Canton {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="canton")
+public class Canton  implements Serializable {
+
+    private static final long serialVersionUID=1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCanton;
