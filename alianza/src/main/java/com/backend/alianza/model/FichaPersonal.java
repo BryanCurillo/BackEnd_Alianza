@@ -62,7 +62,7 @@ public class FichaPersonal implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "idParroquia", referencedColumnName = "idParroquia")
-    private Canton idParroquia;
+    private Parroquia idParroquia;
 
 
 
