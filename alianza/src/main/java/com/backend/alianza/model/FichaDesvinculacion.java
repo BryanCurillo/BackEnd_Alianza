@@ -1,23 +1,34 @@
 package com.backend.alianza.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-@Data
 @Entity
-public class FichaDesvinculacion {
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "fichaDesvinculacion")
+public class FichaDesvinculacion implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idFichaDesvinculacion")
     private int idFichaDesvinculacion;
 
+    @Column(name = "fechaDesvinculacion")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechaDesvinculacion;
 
+    @Column(name = "motivoDesvinculacion")
     private String motivo;
 
-    private String anexosExtras; //PERDIR EXPLICACION
+    @Column(name = "anexosExtrasDesvinculacion", columnDefinition = "LONGTEXT")
+    private String anexosExtras;
 }
