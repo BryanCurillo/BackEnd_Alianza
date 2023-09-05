@@ -1,6 +1,7 @@
 package com.backend.alianza.model;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -67,6 +68,10 @@ public class FichaPersonal implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idFichaInscripcion")
     private FichaInscripcion fichaInscripcion;
+
+    @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Usuario usuario;
 
 
 }
