@@ -1,17 +1,29 @@
 package com.backend.alianza.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.*;
+import lombok.*;
 
-@Data
+import java.io.Serializable;
+import java.util.List;
+
 @Entity
-public class TipoFamilia {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="tipoFamilia")
+public class TipoFamilia  implements Serializable {
+
+    private static final long serialVersionUID=1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idTipoFamilia;
+    private long idTipoFamilia;
 
     private String nombreTipo;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "tipoFamilia")
+    private List<FichaFamiliar> fichaFamiliars;
 }

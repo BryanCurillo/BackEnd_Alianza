@@ -1,17 +1,29 @@
 package com.backend.alianza.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.*;
+import lombok.*;
 
-@Data
+import java.io.Serializable;
+import java.util.List;
+
 @Entity
-public class Etnia {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="etnia")
+public class Etnia  implements Serializable {
+
+    private static final long serialVersionUID=1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idEtnia;
+    private long idEtnia;
 
     private String etniaNombre;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "etnia")
+    private List<FichaPersonal> fichaPersonals;
 }

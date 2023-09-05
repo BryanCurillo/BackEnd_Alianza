@@ -1,10 +1,14 @@
 package com.backend.alianza.model;
 
-import jakarta.persistence.*;
-import lombok.Data;
+import javax.persistence.*;
+import lombok.*;
 
-@Data
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "fichaSalud")
 public class FichaSalud {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,22 +18,26 @@ public class FichaSalud {
     @Column(name = "condicionesMedicas")
     private String condicionesMedicas;
 
-    @Column(name = "peso")
-    private double peso;
+    @Column(name = "pesoFichaSalud")
+    private double pesoFichaSalud;
 
-    @Column(name = "talla")
-    private double talla;
+    @Column(name = "tallaFichaSalud")
+    private double tallaFichaSalud;
 
-    @Column(name = "discapacidadNNA")
-    private Boolean discapacidadNNA;
+    @Column(name = "discapacidadNNAFichaSalud")
+    private Boolean discapacidadNNAFichaSalud;
 
-    @Column(name = "tipoDiscapacidad")
-    private String tipoDiscapacidad;
+    @Column(name = "tipoDiscapacidadFichaSalud")
+    private String tipoDiscapacidadFichaSalud;
 
-    @Column(name = "porcentajeDiscapacidad")
-    private double porcentajeDiscapacidad;
+    @Column(name = "porcentajeDiscapacidadFichaSalud")
+    private double porcentajeDiscapacidadFichaSalud;
 
-    @Column(name = "enfermedadesPrevalentes")
-    private  String enfermedadesPrevalentes;
+    @Column(name = "enfermedadesPrevalentesFichaSalud")
+    private  String enfermedadesPrevalentesFichaSalud;
+
+    @ManyToOne
+    @JoinColumn(name = "idFichaInscripcion")
+    private FichaInscripcion fichaInscripcion;
 
 }
