@@ -1,6 +1,6 @@
 package com.backend.alianza.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,7 +22,6 @@ public class FichaDesvinculacion implements Serializable {
     private int idFichaDesvinculacion;
 
     @Column(name = "fechaDesvinculacion")
-    @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechaDesvinculacion;
 
