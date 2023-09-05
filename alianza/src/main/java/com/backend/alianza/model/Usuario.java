@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
 
     @OneToOne()
     @JoinColumn(name = "idFichaPersonal")
-    private FichaPersonal persona;
+    private FichaPersonal fichaPersonal;
 
     @ManyToOne
     @JoinColumn(name = "idRol")

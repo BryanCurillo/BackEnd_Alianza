@@ -69,7 +69,7 @@ public class FichaPersonal implements Serializable {
     @JoinColumn(name = "idFichaInscripcion")
     private FichaInscripcion fichaInscripcion;
 
-    @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
     private Usuario usuario;
 
