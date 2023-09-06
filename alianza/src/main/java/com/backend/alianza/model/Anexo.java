@@ -31,7 +31,7 @@ public class Anexo implements Serializable {
 
 
     @ManyToOne
-    @JoinColumn(name = "idFichaInscripcion")
-    private FichaInscripcion fichaInscripcion;
+    @JoinColumn(name = "idFichaPersonal")
+    private FichaPersonal fichaPersonal;
 
 }

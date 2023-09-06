@@ -32,8 +32,8 @@ public class FichaDesvinculacion implements Serializable {
     private String anexosExtras;
 
     @ManyToOne
-    @JoinColumn(name = "idFichaInscripcion")
-    private FichaInscripcion fichaInscripcion;
+    @JoinColumn(name = "idFichaPersonal")
+    private FichaPersonal fichaPersonal;
 
 
 }

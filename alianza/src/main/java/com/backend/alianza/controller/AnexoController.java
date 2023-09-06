@@ -34,7 +34,7 @@ public class AnexoController {
             try {
                 anexo.setDocumentoAnexo(a.getDocumentoAnexo());
                 anexo.setTipoDocumentoAnexo(a.getTipoDocumentoAnexo());
-                anexo.setFichaInscripcion(a.getFichaInscripcion());
+                anexo.setFichaPersonal(a.getFichaPersonal());
 
                 return new ResponseEntity<>(anexoService.save(anexo), HttpStatus.CREATED);
             } catch (Exception e) {

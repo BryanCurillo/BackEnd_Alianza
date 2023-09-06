@@ -47,7 +47,7 @@ public class FichaFamiliar implements Serializable {
     private TipoFamilia tipoFamilia;
 
     @ManyToOne
-    @JoinColumn(name = "idFichaInscripcion")
-    private FichaInscripcion fichaInscripcion;
+    @JoinColumn(name = "idFichaPersonal")
+    private FichaPersonal fichaPersonal;
 
 }
