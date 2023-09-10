@@ -13,7 +13,7 @@ public class FichaSalud {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idFichaSalud")
-    private int idFichaSalud;
+    private Long idFichaSalud;
 
     @Column(name = "condicionesMedicas")
     private String condicionesMedicas;
