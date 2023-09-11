@@ -49,7 +49,6 @@ public class FichaPersonalController {
                 fichaPersonal.setRangoEdad(fp.getRangoEdad());
                 fichaPersonal.setEtnia(fp.getEtnia());
                 fichaPersonal.setParroquia(fp.getParroquia());
-                fichaPersonal.setFichaInscripcion(fp.getFichaInscripcion());
 
                 return new ResponseEntity<>(service.save(fichaPersonal), HttpStatus.CREATED);
             } catch (Exception e) {

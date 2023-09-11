@@ -44,8 +44,8 @@ public class FichaEducativa implements Serializable {
     private String gradoEducativo;
 
     @ManyToOne
-    @JoinColumn(name = "idFichaInscripcion")
-    private FichaInscripcion fichaInscripcion;
+    @JoinColumn(name = "idFichaPersonal")
+    private FichaPersonal fichaPersonal;
 
     @OneToMany(mappedBy = "fichaEducativa", cascade = CascadeType.ALL)
     @JsonIgnore

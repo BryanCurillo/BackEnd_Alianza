@@ -29,9 +29,8 @@ public class Anexo implements Serializable {
     @Column(name = "tipoDocumentoAnexo")
     private String tipoDocumentoAnexo;
 
-
     @ManyToOne
-    @JoinColumn(name = "idFichaInscripcion")
-    private FichaInscripcion fichaInscripcion;
+    @JoinColumn(name = "idFichaPersonal")
+    private FichaPersonal fichaPersonal;
 
 }

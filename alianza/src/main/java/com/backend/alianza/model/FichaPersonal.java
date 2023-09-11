@@ -1,7 +1,9 @@
 package com.backend.alianza.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -65,9 +68,33 @@ public class FichaPersonal implements Serializable {
     @JoinColumn(name = "idParroquia", referencedColumnName = "idParroquia")
     private Parroquia parroquia;
 
-    @ManyToOne
-    @JoinColumn(name = "idFichaInscripcion")
-    private FichaInscripcion fichaInscripcion;
+    @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaDesvinculacion> fichaDesvinculacions;
+
+    @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Anexo> anexos;
+
+    @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaSalud> fichaSaluds;
+
+    @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaRepresentante> fichaRepresentantes;
+
+    @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaEducativa> fichaEducativas;
+
+    @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaFamiliar> fichaFamiliars;
+
+    @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaInscripcion> fichaInscripcions;
 
     @OneToOne(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
