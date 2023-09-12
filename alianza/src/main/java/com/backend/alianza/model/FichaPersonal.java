@@ -68,7 +68,7 @@ public class FichaPersonal implements Serializable {
     @JoinColumn(name = "idParroquia", referencedColumnName = "idParroquia")
     private Parroquia parroquia;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "idCurso")
     private Curso curso;
 
@@ -99,10 +99,6 @@ public class FichaPersonal implements Serializable {
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<FichaInscripcion> fichaInscripcions;
-
-    @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List <Asistencia> asistencia;
 
     @OneToOne(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
