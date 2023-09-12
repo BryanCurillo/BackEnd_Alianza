@@ -27,13 +27,14 @@ public class Usuario implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @OneToOne()
-    @JoinColumn(name = "idFichaPersonal")
-    private FichaPersonal fichaPersonal;
 
-    @OneToOne()
+    @OneToOne
     @JoinColumn(name = "idDocente")
     private Docente docente;
+
+    @OneToOne
+    @JoinColumn(name = "idEncargado")
+    private Encargado encargado;
 
     @ManyToOne
     @JoinColumn(name = "idRol")
