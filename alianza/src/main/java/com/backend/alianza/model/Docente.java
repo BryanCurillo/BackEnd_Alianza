@@ -42,7 +42,7 @@ public class Docente implements Serializable {
 
     @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List <Docente> docentes;
+    private List <Curso> cursos;
 
 
 

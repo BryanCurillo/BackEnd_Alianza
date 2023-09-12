@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -71,6 +72,10 @@ public class FichaPersonal implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idCurso")
     private Curso curso;
+
+    @ManyToOne
+    @JoinColumn(name = "idAsistencia")
+    private Asistencia asistencia;
 
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
