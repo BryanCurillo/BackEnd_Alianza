@@ -1,9 +1,7 @@
 package com.backend.alianza.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -54,31 +52,5 @@ public class FichaInscripcion implements Serializable {
     @JoinColumn(name = "idFichaPersonal")
     private FichaPersonal fichaPersonal;
 
-//    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
-//    @JsonIgnore
-//    private List<FichaDesvinculacion> fichaDesvinculacions;
-//
-//    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
-//    @JsonIgnore
-//    private List<Anexo> anexos;
-//
-//    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
-//    @JsonIgnore
-//    private List<FichaSalud> fichaSaluds;
-//
-//    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
-//    @JsonIgnore
-//    private List<FichaRepresentante>fichaRepresentantes;
-//
-//    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
-//    @JsonIgnore
-//    private List<FichaEducativa>fichaEducativas;
-//
-//    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
-//    @JsonIgnore
-//    private List<FichaFamiliar>fichaFamiliars;
-//
-//    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
-//    @JsonIgnore
-//    private List<FichaPersonal>fichaPersonals;
+
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/fichaPersonal")
+@RequestMapping("/tipoPersonal")
 public class FichaPersonalController {
 
     @Autowired
@@ -49,7 +49,6 @@ public class FichaPersonalController {
                 fichaPersonal.setRangoEdad(fp.getRangoEdad());
                 fichaPersonal.setEtnia(fp.getEtnia());
                 fichaPersonal.setParroquia(fp.getParroquia());
-
 
                 return new ResponseEntity<>(service.save(fichaPersonal), HttpStatus.CREATED);
             } catch (Exception e) {

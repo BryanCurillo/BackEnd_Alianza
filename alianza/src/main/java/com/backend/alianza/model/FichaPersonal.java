@@ -1,7 +1,9 @@
 package com.backend.alianza.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -66,14 +68,6 @@ public class FichaPersonal implements Serializable {
     @JoinColumn(name = "idParroquia", referencedColumnName = "idParroquia")
     private Parroquia parroquia;
 
-//    @ManyToOne
-//    @JoinColumn(name = "idFichaInscripcion")
-//    private FichaInscripcion fichaInscripcion;
-
-    @OneToOne(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private Usuario usuario;
-
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<FichaDesvinculacion> fichaDesvinculacions;
@@ -88,17 +82,23 @@ public class FichaPersonal implements Serializable {
 
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<FichaRepresentante>fichaRepresentantes;
+    private List<FichaRepresentante> fichaRepresentantes;
 
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<FichaEducativa>fichaEducativas;
+    private List<FichaEducativa> fichaEducativas;
 
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<FichaFamiliar>fichaFamiliars;
+    private List<FichaFamiliar> fichaFamiliars;
 
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<FichaInscripcion>fichaInscripcions;
+    private List<FichaInscripcion> fichaInscripcions;
+
+    @OneToOne(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Usuario usuario;
+
+
 }
