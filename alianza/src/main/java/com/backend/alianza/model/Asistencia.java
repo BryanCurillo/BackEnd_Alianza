@@ -1,5 +1,6 @@
 package com.backend.alianza.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -31,12 +33,13 @@ public class Asistencia implements Serializable {
 
     private String observacionesAsistencia;
 
-    @ManyToOne()
-    @JoinColumn(name = "idFichaPersonal")
-    private FichaPersonal fichaPersonal;
+    @OneToMany(mappedBy = "asistencia", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<FichaPersonal> fichaPersonals;
 
-    @ManyToOne()
-    @JoinColumn(name = "idCurso")
-    private Curso curso;
+    @OneToMany(mappedBy = "asistencia", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Curso> cursos;
+
 
 }

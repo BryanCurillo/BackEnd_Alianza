@@ -33,16 +33,17 @@ public class Curso implements Serializable {
     @JsonIgnore
     private List <RangoEdad> rangoEdad;
 
-    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List <Asistencia> asistencia;
 
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
     @JsonIgnore
     private List <FichaPersonal> fichaPersonals;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "idDocente")
     private Docente docente;
+
+    @ManyToOne
+    @JoinColumn(name = "idAsistencia")
+    private Asistencia asistencia;
 
 }
