@@ -1,6 +1,8 @@
 package com.backend.alianza.model;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,14 +29,9 @@ public class Usuario implements Serializable {
     @Column(name = "password")
     private String password;
 
-
     @OneToOne
-    @JoinColumn(name = "idDocente")
-    private Docente docente;
-
-    @OneToOne
-    @JoinColumn(name = "idEncargado")
-    private Encargado encargado;
+    @JoinColumn(name = "idPersona")
+    private Persona persona;
 
     @ManyToOne
     @JoinColumn(name = "idRol")

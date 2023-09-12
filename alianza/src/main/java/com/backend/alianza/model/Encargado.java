@@ -25,14 +25,12 @@ public class Encargado implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idEncargado;
 
-    private String apellidosEncargado;
+    private String actividadesEncargado;
 
-    private String nombresEncargado;
+    private String horarioEncargado;
 
-    private String ciIdentidadEncargado;
-
-    @OneToOne(mappedBy = "encargado", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private Usuario usuario;
+    @OneToOne
+    @JoinColumn(name = "idPersona")
+    private Persona persona;
 
 }

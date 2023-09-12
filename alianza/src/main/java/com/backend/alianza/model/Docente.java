@@ -26,24 +26,17 @@ public class Docente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idDocente;
 
-    private String apellidosDocente;
-
-    private String nombresDocente;
-
-    private String ciIdentidadDocente;
-
     private String tituloDocente;
 
     private String materiaDocente;
-
-    @OneToOne(mappedBy = "docente", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private Usuario usuario;
 
     @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
     @JsonIgnore
     private List <Curso> cursos;
 
+    @ManyToOne
+    @JoinColumn(name = "idPersona")
+    private Persona persona;
 
 
 
