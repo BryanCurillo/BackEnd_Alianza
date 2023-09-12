@@ -37,8 +37,9 @@ public class Asistencia implements Serializable {
     @JsonIgnore
     private List<FichaPersonal> fichaPersonals;
 
-    @ManyToOne
-    @JoinColumn(name = "idCurso")
-    private Curso curso;
+    @OneToMany(mappedBy = "asistencia", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Curso> cursos;
+
 
 }
