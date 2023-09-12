@@ -31,6 +31,10 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "idFichaPersonal")
     private FichaPersonal fichaPersonal;
 
+    @OneToOne()
+    @JoinColumn(name = "idDocente")
+    private Docente docente;
+
     @ManyToOne
     @JoinColumn(name = "idRol")
     private Rol rol;
