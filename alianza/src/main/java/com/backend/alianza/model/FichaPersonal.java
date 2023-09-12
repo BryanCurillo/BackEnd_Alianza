@@ -105,9 +105,7 @@ public class FichaPersonal implements Serializable {
     @JsonIgnore
     private List<FichaInscripcion> fichaInscripcions;
 
-    @OneToOne(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private Usuario usuario;
+
 
 
 
