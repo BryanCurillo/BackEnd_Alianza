@@ -29,9 +29,9 @@ public class Curso implements Serializable {
 
     private String nombreCurso;
 
-    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List <RangoEdad> rangoEdad;
+    @ManyToOne
+    @JoinColumn(name = "idRangoEdad", referencedColumnName = "idRangoEdad")
+    private RangoEdad rangoEdad;
 
 
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
