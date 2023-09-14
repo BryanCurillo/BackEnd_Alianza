@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FichaPersonalServiceImpl extends GenericServiceImpl<FichaPersonal, Long> implements GenericService<FichaPersonal, Long> {
 
@@ -19,8 +21,11 @@ public class FichaPersonalServiceImpl extends GenericServiceImpl<FichaPersonal, 
         return repository;
     }
 
+    public List<FichaPersonal> busquedaRE(String ci, String gen,int rang, boolean est) {
+        return repository.busquedaRE(ci,gen,rang,est);
+    }
 
-    public FichaPersonal search(String cedula) {
-        return  repository.findByCiIdentidad(cedula);
+    public List<FichaPersonal> busqueda(String ci, String gen,boolean est) {
+        return repository.busqueda(ci,gen,est);
     }
 }

@@ -33,13 +33,13 @@ public class Asistencia implements Serializable {
 
     private String observacionesAsistencia;
 
-    @OneToMany(mappedBy = "asistencia", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<FichaPersonal> fichaPersonals;
 
-    @OneToMany(mappedBy = "asistencia", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Curso> cursos;
+    @ManyToOne
+    @JoinColumn(name = "idFichaPersonal", referencedColumnName = "idFichaPersonal")
+    private FichaPersonal fichaPersonal;
 
+    @ManyToOne
+    @JoinColumn(name = "idCurso", referencedColumnName = "idCurso")
+    private Curso curso;
 
 }
