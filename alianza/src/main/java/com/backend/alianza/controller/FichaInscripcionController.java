@@ -1,6 +1,7 @@
 package com.backend.alianza.controller;
 
 import com.backend.alianza.model.FichaInscripcion;
+import com.backend.alianza.model.Usuario;
 import com.backend.alianza.service.FichaInscripcionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,8 @@ public class FichaInscripcionController {
     public ResponseEntity<List<FichaInscripcion>> list() {
         return new ResponseEntity<>(fichaInscripcionService.findByAll(), HttpStatus.OK);
     }
+
+
 
     @PostMapping("/post")
     public ResponseEntity<FichaInscripcion> create(@RequestBody FichaInscripcion a) {

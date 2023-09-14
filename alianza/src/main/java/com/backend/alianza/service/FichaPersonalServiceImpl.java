@@ -18,4 +18,9 @@ public class FichaPersonalServiceImpl extends GenericServiceImpl<FichaPersonal, 
     public CrudRepository<FichaPersonal, Long> getDao() {
         return repository;
     }
+
+
+    public FichaPersonal search(String cedula) {
+        return  repository.findByCiIdentidad(cedula);
+    }
 }
