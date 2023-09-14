@@ -23,6 +23,30 @@ public class FichaPersonalController {
         return new ResponseEntity<>(service.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/busquedaRE/{ci}/{gen}/{rang}/{est}")
+    public ResponseEntity<List<FichaPersonal>> busquedaRE(@PathVariable String ci,@PathVariable String gen,@PathVariable int rang, @PathVariable boolean est){
+        if(ci.equalsIgnoreCase("NA")){
+            ci="";
+        }
+        if(gen.equalsIgnoreCase("NA")){
+            gen="";
+        }
+        return new ResponseEntity<>(service.busquedaRE(ci,gen,rang,est), HttpStatus.OK);
+    }
+
+    @GetMapping("/busqueda/{ci}/{gen}/{est}")
+    public ResponseEntity<List<FichaPersonal>> busqueda(@PathVariable String ci,@PathVariable String gen, @PathVariable boolean est){
+        if(ci.equalsIgnoreCase("NA")){
+            ci="";
+        }
+        if(gen.equalsIgnoreCase("NA")){
+            gen="";
+
+        }
+        System.out.println("genero= "+gen);
+        return new ResponseEntity<>(service.busqueda(ci,gen,est), HttpStatus.OK);
+    }
+
     @PostMapping("/post")
     public ResponseEntity<FichaPersonal> create(@RequestBody FichaPersonal fp) {
         return new ResponseEntity<>(service.save(fp), HttpStatus.CREATED);
@@ -49,6 +73,7 @@ public class FichaPersonalController {
                 fichaPersonal.setRangoEdad(fp.getRangoEdad());
                 fichaPersonal.setEtnia(fp.getEtnia());
                 fichaPersonal.setParroquia(fp.getParroquia());
+                fichaPersonal.setEstVinculacion(fp.isEstVinculacion());
 
                 return new ResponseEntity<>(service.save(fichaPersonal), HttpStatus.CREATED);
             } catch (Exception e) {

@@ -29,6 +29,7 @@ public class FichaPersonal implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idFichaPersonal;
 
+    @Column(name = "foto", columnDefinition = "TEXT")
     private String foto;
 
     private String apellidos;
@@ -57,6 +58,8 @@ public class FichaPersonal implements Serializable {
 
     private double coordenadaY;
 
+    private boolean estVinculacion;
+
     @ManyToOne
     @JoinColumn(name = "idRangoEdad", referencedColumnName = "idRangoEdad")
     private RangoEdad rangoEdad;
@@ -69,13 +72,13 @@ public class FichaPersonal implements Serializable {
     @JoinColumn(name = "idParroquia", referencedColumnName = "idParroquia")
     private Parroquia parroquia;
 
-    @ManyToOne
-    @JoinColumn(name = "idCurso")
-    private Curso curso;
+//    @ManyToOne
+//    @JoinColumn(name = "idCurso")
+//    private Curso curso;
 
-    @ManyToOne
-    @JoinColumn(name = "idAsistencia")
-    private Asistencia asistencia;
+    @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Asistencia> asistencias;
 
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
