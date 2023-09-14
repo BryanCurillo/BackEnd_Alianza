@@ -40,6 +40,10 @@ public class Persona implements Serializable {
     @JsonIgnore
     private List<Docente> docentes;
 
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Secretaria> secretarias;
+
     @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
     @JsonIgnore
     private Encargado encargado;
