@@ -8,7 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/fichaPersonal")
@@ -43,8 +46,29 @@ public class FichaPersonalController {
             gen="";
 
         }
-        System.out.println("genero= "+gen);
         return new ResponseEntity<>(service.busqueda(ci,gen,est), HttpStatus.OK);
+    }
+
+    @GetMapping("/busquedaCiNombre/{est}/{busqueda}")
+    public ResponseEntity<List<Map<String, Object>>> busquedaCiNombre(@PathVariable boolean est, @PathVariable String busqueda){
+        if(busqueda.equalsIgnoreCase("NA")){
+            busqueda="";
+        }
+
+        List<Object[]> resultados = service.busquedaCiNombre(est, busqueda);
+        List<Map<String, Object>> resultadosConNombres = new ArrayList<>();
+
+        for (Object[] fila : resultados) {
+            Map<String, Object> resultadoMap = new HashMap<>();
+            resultadoMap.put("idFichaPersonal", fila[0]);
+            resultadoMap.put("apellidos", fila[1]);
+            resultadoMap.put("nombres", fila[2]);
+            resultadoMap.put("ciIdentidad", fila[3]);
+            resultadoMap.put("estVinculacion", fila[4]);
+            resultadosConNombres.add(resultadoMap);
+        }
+
+        return new ResponseEntity<>(resultadosConNombres, HttpStatus.OK);
     }
 
     @PostMapping("/post")
