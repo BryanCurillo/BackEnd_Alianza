@@ -28,4 +28,8 @@ public class FichaPersonalServiceImpl extends GenericServiceImpl<FichaPersonal, 
     public List<FichaPersonal> busqueda(String ci, String gen,boolean est) {
         return repository.busqueda(ci,gen,est);
     }
+
+    public FichaPersonal search(String cedula) {
+        return  repository.findByCiIdentidad(cedula);
+    }
 }

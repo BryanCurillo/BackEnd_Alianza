@@ -5,19 +5,26 @@ VALUES (2, '', 'Secretaria');
 INSERT INTO rol(id_rol, descripcion_rol, nombre_rol)
 VALUES (1, '', 'Encargado');
 
-INSERT INTO public.rango_edad(lim_inferior, lim_superior)
+INSERT INTO etnia(etnia_nombre)
+VALUES ('Afroecuatoriano/Afrodecendiente'),
+       ('Blanco/a'),
+       ('Indígena'),
+       ('Mestizo/a'),
+       ('Montubio/a');
+
+INSERT INTO rango_edad(lim_inferior, lim_superior)
 VALUES (5, 9),
        (10, 14),
        (15, 18);
 
-INSERT INTO public.persona(id_persona, apellidos_persona, ci_identidad_persona, nombres_persona)
+INSERT INTO persona(id_persona, apellidos_persona, ci_identidad_persona, nombres_persona)
 VALUES (1, 'Curillo Chimbo', '0106046709', 'Bryan Adrian');
 
-INSERT INTO public.usuario(id_usuario, password, username, id_persona, id_rol)
+INSERT INTO usuario(id_usuario, password, username, id_persona, id_rol)
 VALUES (1, '1234', 'admin', 1, 1);
 
 -- PROVINCIAS
-INSERT INTO public.provincia (provincia_nombre)
+INSERT INTO provincia (provincia_nombre)
 VALUES ('AZUAY'),
        ('BOLIVAR'),
        ('CAÑAR'),
@@ -44,7 +51,7 @@ VALUES ('AZUAY'),
        ('SANTA ELENA'),
        ('ZONAS NO DELIMITADAS');
 
-INSERT INTO public.canton(canton_nombre, id_provincia)
+INSERT INTO canton(canton_nombre, id_provincia)
 VALUES ('CUENCA', 1),
        ('GIRÓN', 1),
        ('GUALACEO', 1),
@@ -272,7 +279,7 @@ VALUES ('CUENCA', 1),
 
 
 
-INSERT INTO public.parroquia(parroquia_nombre, id_canton)
+INSERT INTO parroquia(parroquia_nombre, id_canton)
 VALUES ('BELLAVISTA', 1),
        ('CAÑARIBAMBA', 1),
        ('EL BATÁN', 1),

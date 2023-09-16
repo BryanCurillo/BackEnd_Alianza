@@ -29,14 +29,13 @@ public class Asistencia implements Serializable {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechaAsistencia;
 
-    private Boolean presenteAsistencia;
+    private Boolean estadoAsistencia;
 
     private String observacionesAsistencia;
 
-
     @ManyToOne
-    @JoinColumn(name = "idFichaPersonal", referencedColumnName = "idFichaPersonal")
-    private FichaPersonal fichaPersonal;
+    @JoinColumn(name = "idFichaInscripcion", referencedColumnName = "idFichaInscripcion")
+    private FichaInscripcion fichaInscripcion;
 
     @ManyToOne
     @JoinColumn(name = "idCurso", referencedColumnName = "idCurso")

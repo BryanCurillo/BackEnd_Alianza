@@ -30,4 +30,6 @@ public interface FichaPersonalRepository extends JpaRepository<FichaPersonal, Lo
                                    @Param("gen") String gen,
                                    @Param("est") boolean est);
 
+    FichaPersonal findByCiIdentidad(String ciIdentidad);
+
 }

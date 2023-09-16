@@ -72,14 +72,6 @@ public class FichaPersonal implements Serializable {
     @JoinColumn(name = "idParroquia", referencedColumnName = "idParroquia")
     private Parroquia parroquia;
 
-//    @ManyToOne
-//    @JoinColumn(name = "idCurso")
-//    private Curso curso;
-
-    @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Asistencia> asistencias;
-
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<FichaDesvinculacion> fichaDesvinculacions;
