@@ -29,7 +29,7 @@ public class FichaPersonalServiceImpl extends GenericServiceImpl<FichaPersonal, 
         return repository.busqueda(ci,gen,est);
     }
 
-    public FichaPersonal search(String cedula) {
-        return  repository.findByCiIdentidad(cedula);
+    public List<Object[]> busquedaCiNombre (boolean est, String busqueda) {
+        return repository.busquedaCiNombre(est, busqueda);
     }
 }
