@@ -50,13 +50,13 @@ public class FichaPersonalController {
         return new ResponseEntity<>(service.busqueda(ci,gen,est), HttpStatus.OK);
     }
 
-    @GetMapping("/busquedaCiNombre/{busqueda}")
-    public ResponseEntity<List<Map<String, Object>>> busquedaCiNombre( @PathVariable String busqueda){
+    @GetMapping("/busquedaCiNombre/{est}/{busqueda}")
+    public ResponseEntity<List<Map<String, Object>>> busquedaCiNombre(@PathVariable boolean est, @PathVariable String busqueda){
         if(busqueda.equalsIgnoreCase("NA")){
             busqueda="";
         }
 
-        List<Object[]> resultados = service.busquedaCiNombre(busqueda);
+        List<Object[]> resultados = service.busquedaCiNombre(est, busqueda);
         List<Map<String, Object>> resultadosConNombres = new ArrayList<>();
 
         for (Object[] fila : resultados) {
@@ -66,6 +66,7 @@ public class FichaPersonalController {
             resultadoMap.put("nombres", fila[2]);
             resultadoMap.put("ciIdentidad", fila[3]);
             resultadoMap.put("estVinculacion", fila[4]);
+            resultadoMap.put("foto", fila[5]);
             resultadosConNombres.add(resultadoMap);
         }
 

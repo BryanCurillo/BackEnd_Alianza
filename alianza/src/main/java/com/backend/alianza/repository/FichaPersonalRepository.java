@@ -31,7 +31,7 @@ public interface FichaPersonalRepository extends JpaRepository<FichaPersonal, Lo
                                  @Param("est") boolean est);
 
 
-    @Query(value = " SELECT p.id_ficha_personal, p.apellidos, p.nombres, p.ci_identidad, p.est_vinculacion  " +
+    @Query(value = " SELECT p.id_ficha_personal, p.apellidos, p.nombres, p.ci_identidad, p.est_vinculacion, p.foto  " +
             " FROM ficha_personal p " +
             " WHERE p.est_vinculacion = :est " +
             " AND ( " +
