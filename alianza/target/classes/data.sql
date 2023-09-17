@@ -21,7 +21,7 @@ INSERT INTO persona(id_persona, apellidos_persona, ci_identidad_persona, nombres
 VALUES (1, 'Curillo Chimbo', '0106046709', 'Bryan Adrian');
 
 INSERT INTO usuario(id_usuario, password, username, id_persona, id_rol)
-VALUES (1, '1234', 'admin', 1, 1);
+VALUES (1, '1234', 'Admin', 1, 1);
 
 -- PROVINCIAS
 INSERT INTO provincia (provincia_nombre)

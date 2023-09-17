@@ -1,7 +1,11 @@
 package com.backend.alianza.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "fichaInstruccion")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idFichaInscripcion")
 public class FichaInscripcion implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,12 +55,13 @@ public class FichaInscripcion implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "idFichaPersonal")
+    @JsonIgnoreProperties("fichaInscripcions") // Evita la referencia circular
     private FichaPersonal fichaPersonal;
 
     @ManyToOne
     @JoinColumn(name = "idCurso", referencedColumnName = "idCurso")
+    @JsonIgnoreProperties("inscripciones") // Evita la referencia circular
     private Curso curso;
-
 
     @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
     @JsonIgnore

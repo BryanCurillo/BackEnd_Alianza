@@ -1,10 +1,9 @@
 package com.backend.alianza.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "fichaPersonal")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idFichaPersonal")
 public class FichaPersonal implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -97,7 +97,7 @@ public class FichaPersonal implements Serializable {
     private List<FichaFamiliar> fichaFamiliars;
 
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonIgnoreProperties("fichaPersonal") // Evita la referencia circular
     private List<FichaInscripcion> fichaInscripcions;
 
 

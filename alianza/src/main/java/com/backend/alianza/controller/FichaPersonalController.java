@@ -50,13 +50,13 @@ public class FichaPersonalController {
         return new ResponseEntity<>(service.busqueda(ci,gen,est), HttpStatus.OK);
     }
 
-    @GetMapping("/busquedaCiNombre/{est}/{busqueda}")
-    public ResponseEntity<List<Map<String, Object>>> busquedaCiNombre(@PathVariable boolean est, @PathVariable String busqueda){
+    @GetMapping("/busquedaCiNombre/{busqueda}")
+    public ResponseEntity<List<Map<String, Object>>> busquedaCiNombre( @PathVariable String busqueda){
         if(busqueda.equalsIgnoreCase("NA")){
             busqueda="";
         }
 
-        List<Object[]> resultados = service.busquedaCiNombre(est, busqueda);
+        List<Object[]> resultados = service.busquedaCiNombre(busqueda);
         List<Map<String, Object>> resultadosConNombres = new ArrayList<>();
 
         for (Object[] fila : resultados) {
@@ -75,11 +75,6 @@ public class FichaPersonalController {
     @PostMapping("/post")
     public ResponseEntity<FichaPersonal> create(@RequestBody FichaPersonal fp) {
         return new ResponseEntity<>(service.save(fp), HttpStatus.CREATED);
-    }
-
-    @GetMapping("/search/{cedula}")
-    public FichaPersonal obtenerPersona(@PathVariable String cedula) {
-        return service.search(cedula);
     }
 
     @PutMapping("/put/{id}")
