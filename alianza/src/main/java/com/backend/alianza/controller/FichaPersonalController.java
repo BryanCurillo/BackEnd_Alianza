@@ -52,6 +52,7 @@ public class FichaPersonalController {
 
     @GetMapping("/busquedaCiNombre/{est}/{busqueda}")
     public ResponseEntity<List<Map<String, Object>>> busquedaCiNombre(@PathVariable boolean est, @PathVariable String busqueda){
+        busqueda=busqueda.trim();
         if(busqueda.equalsIgnoreCase("NA")){
             busqueda="";
         }

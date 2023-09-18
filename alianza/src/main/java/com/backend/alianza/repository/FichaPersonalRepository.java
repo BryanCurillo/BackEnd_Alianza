@@ -31,16 +31,27 @@ public interface FichaPersonalRepository extends JpaRepository<FichaPersonal, Lo
                                  @Param("est") boolean est);
 
 
+//    @Query(value = " SELECT p.id_ficha_personal, p.apellidos, p.nombres, p.ci_identidad, p.est_vinculacion, p.foto  " +
+//            " FROM ficha_personal p " +
+//            " WHERE p.est_vinculacion = :est " +
+//            " AND ( " +
+//            "   p.ci_identidad LIKE (CONCAT('%', :busqueda ,'%')) " +
+//            "    OR LOWER(p.apellidos) LIKE LOWER (CONCAT('%', :busqueda ,'%')) " +
+//            "    OR LOWER(p.nombres) LIKE LOWER (CONCAT('%', :busqueda ,'%')) " +
+//            ") ", nativeQuery = true)
+//    List<Object[]> busquedaCiNombre(@Param("est") boolean est,
+//                                         @Param("busqueda") String busqueda);
+
     @Query(value = " SELECT p.id_ficha_personal, p.apellidos, p.nombres, p.ci_identidad, p.est_vinculacion, p.foto  " +
-            " FROM ficha_personal p " +
-            " WHERE p.est_vinculacion = :est " +
-            " AND ( " +
-            "   p.ci_identidad LIKE (CONCAT('%', :busqueda ,'%')) " +
-            "    OR LOWER(p.apellidos) LIKE LOWER (CONCAT('%', :busqueda ,'%')) " +
-            "    OR LOWER(p.nombres) LIKE LOWER (CONCAT('%', :busqueda ,'%')) " +
-            ") ", nativeQuery = true)
+            "             FROM ficha_personal p " +
+            "             WHERE p.est_vinculacion = :est" +
+            "             AND ( " +
+            "               p.ci_identidad LIKE (CONCAT('%', :busqueda ,'%')) " +
+            "                OR CONCAT(LOWER(p.apellidos), ' ', LOWER(p.nombres)) LIKE LOWER (CONCAT('%', :busqueda ,'%')) " +
+            "                OR CONCAT(LOWER(p.nombres), ' ', LOWER(p.apellidos)) LIKE LOWER (CONCAT('%', :busqueda ,'%')) " +
+            "            )", nativeQuery = true)
     List<Object[]> busquedaCiNombre(@Param("est") boolean est,
-                                         @Param("busqueda") String busqueda);
+                                    @Param("busqueda") String busqueda);
 
 
     FichaPersonal findByCiIdentidad(String ciIdentidad);
