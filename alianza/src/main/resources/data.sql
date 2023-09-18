@@ -23,6 +23,19 @@ VALUES (1, 'Curillo Chimbo', '0106046709', 'Bryan Adrian');
 INSERT INTO usuario(id_usuario, password, username, id_persona, id_rol)
 VALUES (1, '1234', 'Admin', 1, 1);
 
+
+--TIPOS DE FAMILIA
+INSERT INTO public.tipo_familia(nombre_tipo)
+VALUES ('biparental o nuclear'),
+       ('Familia monoparental'),
+       ('Unidad sin hijos'),
+       ('Familia de padres divorciados '),
+       ('Familia homoparental'),
+       ('Familia adoptiva'),
+       ('Familia compuesta'),
+       ('Familia extensa');
+
+
 -- PROVINCIAS
 INSERT INTO provincia (provincia_nombre)
 VALUES ('AZUAY'),
