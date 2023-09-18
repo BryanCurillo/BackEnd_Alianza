@@ -19,7 +19,7 @@ public class FichaDesvinculacion implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idFichaDesvinculacion")
-    private int idFichaDesvinculacion;
+    private long idFichaDesvinculacion;
 
     @Column(name = "fechaDesvinculacion")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
