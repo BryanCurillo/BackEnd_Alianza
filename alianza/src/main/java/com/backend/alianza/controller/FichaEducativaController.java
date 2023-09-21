@@ -21,6 +21,12 @@ public class FichaEducativaController {
         return new ResponseEntity<>(fichaEducativaService.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/busquedaID/{id}")
+    public ResponseEntity<List<FichaEducativa>> busquedaID(@PathVariable Long id){
+
+        return new ResponseEntity<>(fichaEducativaService.busquedaID(id), HttpStatus.OK);
+    }
+
     @PostMapping("/post")
     public ResponseEntity<FichaEducativa> create(@RequestBody FichaEducativa a) {
         return new ResponseEntity<>(fichaEducativaService.save(a), HttpStatus.CREATED);

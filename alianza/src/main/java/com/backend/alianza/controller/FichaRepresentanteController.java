@@ -23,6 +23,12 @@ public class FichaRepresentanteController {
         return new ResponseEntity<>(fichaRepresentanteService.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/busquedaID/{id}")
+    public ResponseEntity<List<FichaRepresentante>> busquedaID(@PathVariable Long id){
+
+        return new ResponseEntity<>(fichaRepresentanteService.busquedaID(id), HttpStatus.OK);
+    }
+
     @PostMapping("/post")
     public ResponseEntity<FichaRepresentante> create(@RequestBody FichaRepresentante a) {
         return new ResponseEntity<>(fichaRepresentanteService.save(a), HttpStatus.CREATED);

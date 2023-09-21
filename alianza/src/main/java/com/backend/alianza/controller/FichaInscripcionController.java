@@ -23,7 +23,11 @@ public class FichaInscripcionController {
         return new ResponseEntity<>(fichaInscripcionService.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/busquedaID/{id}")
+    public ResponseEntity<List<FichaInscripcion>> busquedaID(@PathVariable Long id){
 
+        return new ResponseEntity<>(fichaInscripcionService.busquedaID(id), HttpStatus.OK);
+    }
 
     @PostMapping("/post")
     public ResponseEntity<FichaInscripcion> create(@RequestBody FichaInscripcion a) {

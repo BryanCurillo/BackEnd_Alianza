@@ -22,6 +22,12 @@ public class FichaSaludController {
         return new ResponseEntity<>(fichaSaludService.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/busquedaID/{id}")
+    public ResponseEntity<List<FichaSalud>> busquedaID(@PathVariable Long id){
+
+        return new ResponseEntity<>(fichaSaludService.busquedaID(id), HttpStatus.OK);
+    }
+
     @PostMapping("/post")
     public ResponseEntity<FichaSalud> create(@RequestBody FichaSalud a) {
         return new ResponseEntity<>(fichaSaludService.save(a), HttpStatus.CREATED);

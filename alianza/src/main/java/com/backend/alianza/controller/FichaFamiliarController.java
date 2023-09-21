@@ -20,6 +20,12 @@ public class FichaFamiliarController {
         return new ResponseEntity<>(service.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/busquedaID/{id}")
+    public ResponseEntity<List<FichaFamiliar>> busquedaID(@PathVariable Long id){
+
+        return new ResponseEntity<>(service.busquedaID(id), HttpStatus.OK);
+    }
+
     @PostMapping("/post")
     public ResponseEntity<FichaFamiliar> create(@RequestBody FichaFamiliar ff) {
         return new ResponseEntity<>(service.save(ff), HttpStatus.CREATED);

@@ -21,7 +21,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "fichaInstruccion")
+@Table(name = "fichaInscripcion")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idFichaInscripcion")
 public class FichaInscripcion implements Serializable {
 

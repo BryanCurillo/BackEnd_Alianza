@@ -22,6 +22,12 @@ public class FichaDesvinculacionController {
         return new ResponseEntity<>(fichaDesvinculacionService.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/busquedaID/{id}")
+    public ResponseEntity<List<FichaDesvinculacion>> busquedaID(@PathVariable Long id){
+
+        return new ResponseEntity<>(fichaDesvinculacionService.busquedaID(id), HttpStatus.OK);
+    }
+
     @PostMapping("/post")
     public ResponseEntity<FichaDesvinculacion> create(@RequestBody FichaDesvinculacion a) {
         return new ResponseEntity<>(fichaDesvinculacionService.save(a), HttpStatus.CREATED);

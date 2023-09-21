@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FichaInscripcionServiceImpl extends GenericServiceImpl<FichaInscripcion,Long>implements GenericService<FichaInscripcion,Long> {
     @Autowired
@@ -15,5 +17,9 @@ public class FichaInscripcionServiceImpl extends GenericServiceImpl<FichaInscrip
     @Override
     public CrudRepository<FichaInscripcion, Long> getDao() {
         return fichaInscripcionRepository;
+    }
+
+    public List<FichaInscripcion> busquedaID(Long id) {
+        return fichaInscripcionRepository.busquedaID(id);
     }
 }
