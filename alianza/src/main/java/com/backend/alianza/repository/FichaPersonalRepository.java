@@ -40,9 +40,9 @@ public interface FichaPersonalRepository extends JpaRepository<FichaPersonal, Lo
             "    OR LOWER(p.nombres) LIKE LOWER (CONCAT('%', :busqueda ,'%')) " +
             ") ", nativeQuery = true)
     List<Object[]> busquedaCiNombre(@Param("est") boolean est,
-                                         @Param("busqueda") String busqueda);
+                                    @Param("busqueda") String busqueda);
 
 
-    FichaPersonal findByCiIdentidad(String ciIdentidad);
+
 
 }

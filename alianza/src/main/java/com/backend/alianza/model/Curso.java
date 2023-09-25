@@ -23,12 +23,11 @@ import java.util.List;
 @Table(name = "curso")
 public class Curso implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 1L;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idCurso;
+    private Long idCurso;
 
     private String nombreCurso;
 

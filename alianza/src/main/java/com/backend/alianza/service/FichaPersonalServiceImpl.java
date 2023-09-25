@@ -21,15 +21,16 @@ public class FichaPersonalServiceImpl extends GenericServiceImpl<FichaPersonal, 
         return repository;
     }
 
-    public List<FichaPersonal> busquedaRE(String ci, String gen,int rang, boolean est) {
-        return repository.busquedaRE(ci,gen,rang,est);
+    public List<FichaPersonal> busquedaRE(String ci, String gen, int rang, boolean est) {
+        return repository.busquedaRE(ci, gen, rang, est);
     }
 
-    public List<FichaPersonal> busqueda(String ci, String gen,boolean est) {
-        return repository.busqueda(ci,gen,est);
+    public List<FichaPersonal> busqueda(String ci, String gen, boolean est) {
+        return repository.busqueda(ci, gen, est);
     }
 
-    public List<Object[]> busquedaCiNombre (boolean est, String busqueda) {
+    public List<Object[]> busquedaCiNombre(boolean est, String busqueda) {
         return repository.busquedaCiNombre(est, busqueda);
     }
+
 }

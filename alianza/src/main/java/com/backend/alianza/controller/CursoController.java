@@ -22,6 +22,11 @@ public class CursoController {
         return new ResponseEntity<>(service.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/getCurso/{idDocente}")
+    public ResponseEntity<List<Curso>> listCursos(@PathVariable Long idDocente) {
+        return new ResponseEntity<>(service.listaCurso(idDocente), HttpStatus.OK);
+    }
+
     @PostMapping("/post")
     public ResponseEntity<Curso> create(@RequestBody Curso c) {
         return new ResponseEntity<>(service.save(c), HttpStatus.CREATED);
