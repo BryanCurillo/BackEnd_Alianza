@@ -13,4 +13,9 @@ public interface FichaInscripcionRepository extends JpaRepository<FichaInscripci
             " FROM public.ficha_inscripcion f " +
             " WHERE f.id_ficha_personal = :id ", nativeQuery = true)
     List<FichaInscripcion> busquedaID(@Param("id") Long id);
+
+    @Query(value = "Select f.*\n" +
+            "from ficha_inscripcion f\n" +
+            "where f.id_curso = ?;", nativeQuery = true)
+    List<FichaInscripcion> listaEstudiantes(@Param("idCurso") Long idCurso);
 }
