@@ -22,7 +22,7 @@ public class Asistencia implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idAsistencia;
+    private Long idAsistencia;
 
     @Column(name = "fechaAsistencia")
     @Temporal(TemporalType.DATE)

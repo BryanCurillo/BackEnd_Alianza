@@ -21,40 +21,42 @@ public class FichaPersonalController {
     @Autowired
     public FichaPersonalServiceImpl service;
 
-
     @GetMapping("/get")
     public ResponseEntity<List<FichaPersonal>> list() {
         return new ResponseEntity<>(service.findByAll(), HttpStatus.OK);
     }
 
     @GetMapping("/busquedaRE/{ci}/{gen}/{rang}/{est}")
-    public ResponseEntity<List<FichaPersonal>> busquedaRE(@PathVariable String ci,@PathVariable String gen,@PathVariable int rang, @PathVariable boolean est){
-        if(ci.equalsIgnoreCase("NA")){
-            ci="";
+    public ResponseEntity<List<FichaPersonal>> busquedaRE(@PathVariable String ci, @PathVariable String gen,
+            @PathVariable int rang, @PathVariable boolean est) {
+        if (ci.equalsIgnoreCase("NA")) {
+            ci = "";
         }
-        if(gen.equalsIgnoreCase("NA")){
-            gen="";
+        if (gen.equalsIgnoreCase("NA")) {
+            gen = "";
         }
-        return new ResponseEntity<>(service.busquedaRE(ci,gen,rang,est), HttpStatus.OK);
+        return new ResponseEntity<>(service.busquedaRE(ci, gen, rang, est), HttpStatus.OK);
     }
 
     @GetMapping("/busqueda/{ci}/{gen}/{est}")
-    public ResponseEntity<List<FichaPersonal>> busqueda(@PathVariable String ci,@PathVariable String gen, @PathVariable boolean est){
-        if(ci.equalsIgnoreCase("NA")){
-            ci="";
+    public ResponseEntity<List<FichaPersonal>> busqueda(@PathVariable String ci, @PathVariable String gen,
+            @PathVariable boolean est) {
+        if (ci.equalsIgnoreCase("NA")) {
+            ci = "";
         }
-        if(gen.equalsIgnoreCase("NA")){
-            gen="";
+        if (gen.equalsIgnoreCase("NA")) {
+            gen = "";
 
         }
-        return new ResponseEntity<>(service.busqueda(ci,gen,est), HttpStatus.OK);
+        return new ResponseEntity<>(service.busqueda(ci, gen, est), HttpStatus.OK);
     }
 
     @GetMapping("/busquedaCiNombre/{est}/{busqueda}")
-    public ResponseEntity<List<Map<String, Object>>> busquedaCiNombre(@PathVariable boolean est, @PathVariable String busqueda){
-        busqueda=busqueda.trim();
-        if(busqueda.equalsIgnoreCase("NA")){
-            busqueda="";
+    public ResponseEntity<List<Map<String, Object>>> busquedaCiNombre(@PathVariable boolean est,
+            @PathVariable String busqueda) {
+        busqueda = busqueda.trim();
+        if (busqueda.equalsIgnoreCase("NA")) {
+            busqueda = "";
         }
 
         List<Object[]> resultados = service.busquedaCiNombre(est, busqueda);

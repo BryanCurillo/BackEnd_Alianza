@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/fichaInscripcion")
-@CrossOrigin(origins = {"*"})
+@CrossOrigin(origins = { "*" })
 public class FichaInscripcionController {
 
     @Autowired
@@ -25,6 +25,12 @@ public class FichaInscripcionController {
 
     @GetMapping("/busquedaID/{id}")
     public ResponseEntity<List<FichaInscripcion>> busquedaID(@PathVariable Long id){
+        
+    @GetMapping("/getID/{id}")
+    public ResponseEntity<List<FichaInscripcion>> listByID(@PathVariable Long id) {
+        return new ResponseEntity<>(fichaInscripcionService.busquedaCurso(id), HttpStatus.OK);
+    }
+
 
         return new ResponseEntity<>(fichaInscripcionService.busquedaID(id), HttpStatus.OK);
     }

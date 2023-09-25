@@ -27,7 +27,7 @@ public class FichaPersonal implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idFichaPersonal;
+    private Long idFichaPersonal;
 
     @Column(name = "foto", columnDefinition = "TEXT")
     private String foto;

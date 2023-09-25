@@ -21,15 +21,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "curso")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idCurso")
 public class Curso implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 1L;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idCurso;
+    private Long idCurso;
 
     private String nombreCurso;
 
