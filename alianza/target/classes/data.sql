@@ -26,7 +26,7 @@ VALUES (1, '1234', 'Admin', 1, 1);
 
 --TIPOS DE FAMILIA
 INSERT INTO public.tipo_familia(nombre_tipo)
-VALUES ('biparental o nuclear'),
+VALUES ('Biparental o nuclear'),
        ('Familia monoparental'),
        ('Unidad sin hijos'),
        ('Familia de padres divorciados '),
