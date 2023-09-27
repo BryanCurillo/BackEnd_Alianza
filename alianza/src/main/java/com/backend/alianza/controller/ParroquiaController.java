@@ -21,6 +21,11 @@ public class ParroquiaController {
         return new ResponseEntity<>(service.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/busqueda/{id}")
+    public ResponseEntity<List<Parroquia>> busqueda(@PathVariable Long id) {
+        return new ResponseEntity<>(service.busqueda(id), HttpStatus.OK);
+    }
+
     @PostMapping("/post")
     public ResponseEntity<Parroquia> create(@RequestBody Parroquia p) {
         return new ResponseEntity<>(service.save(p), HttpStatus.CREATED);

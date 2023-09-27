@@ -36,11 +36,6 @@ public class FichaInscripcion implements Serializable {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechaIngresoInscrip;
 
-    @Column(name = "fechaEgresoInscrip")
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private Date fechaEgreso;
-
     @Column(name = "proyectoInscrip")
     private String proyectoInscrip;
 

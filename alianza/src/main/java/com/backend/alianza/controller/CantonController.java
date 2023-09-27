@@ -21,6 +21,10 @@ public class CantonController {
         return new ResponseEntity<>(service.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/busqueda/{id}")
+    public ResponseEntity<List<Canton>> busqueda(@PathVariable Long id) {
+        return new ResponseEntity<>(service.busqueda(id), HttpStatus.OK);
+    }
     @PostMapping("/post")
     public ResponseEntity<Canton> create(@RequestBody Canton c) {
         return new ResponseEntity<>(service.save(c), HttpStatus.CREATED);

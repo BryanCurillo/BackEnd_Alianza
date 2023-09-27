@@ -41,7 +41,6 @@ public class CursoController {
                 curso.setNombreCurso(c.getNombreCurso());
                 curso.setDocente(c.getDocente());
                 curso.setFechaInicio(c.getFechaInicio());
-                curso.setFechaFin(c.getFechaFin());
                 curso.setRangoEdad(c.getRangoEdad());
 
                 return new ResponseEntity<>(service.save(curso), HttpStatus.CREATED);

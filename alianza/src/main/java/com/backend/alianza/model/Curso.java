@@ -35,9 +35,6 @@ public class Curso implements Serializable {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechaInicio;
 
-    @Column(name = "fechaFin")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private Date fechaFin;
 
     private Boolean estadoCurso;
 

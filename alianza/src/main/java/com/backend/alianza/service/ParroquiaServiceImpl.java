@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.backend.alianza.genericService.GenericService;
 import com.backend.alianza.genericService.GenericServiceImpl;
 
+import java.util.List;
+
 @Service
 public class ParroquiaServiceImpl  extends GenericServiceImpl<Parroquia, Long> implements GenericService<Parroquia, Long> {
 
@@ -16,5 +18,9 @@ public class ParroquiaServiceImpl  extends GenericServiceImpl<Parroquia, Long> i
     @Override
     public CrudRepository<Parroquia, Long> getDao() {
         return repository;
+    }
+
+    public List<Parroquia> busqueda(Long id) {
+        return repository.busqueda(id);
     }
 }

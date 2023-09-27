@@ -45,7 +45,6 @@ public class FichaInscripcionController {
             try {
                 fichaInscripcion.setAsistenciaInscrip(a.getAsistenciaInscrip());
                 fichaInscripcion.setProyectoInscrip(a.getProyectoInscrip());
-                fichaInscripcion.setFechaEgreso(a.getFechaEgreso());
                 fichaInscripcion.setFechaIngresoInscrip(a.getFechaIngresoInscrip());
                 fichaInscripcion.setJornadaAsistenciaInscrip(a.getJornadaAsistenciaInscrip());
                 fichaInscripcion.setSituacionIngresoInscrip(a.getSituacionIngresoInscrip());
