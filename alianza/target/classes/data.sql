@@ -13,9 +13,8 @@ VALUES ('Afroecuatoriano/Afrodecendiente'),
        ('Montubio/a');
 
 INSERT INTO rango_edad(lim_inferior, lim_superior)
-VALUES (5, 9),
-       (10, 14),
-       (15, 18);
+VALUES (5, 10),
+       (11, 17);
 
 INSERT INTO persona(id_persona, apellidos_persona, ci_identidad_persona, nombres_persona)
 VALUES (1, 'Curillo Chimbo', '0106046709', 'Bryan Adrian');
