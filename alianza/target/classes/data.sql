@@ -22,6 +22,24 @@ VALUES (1, 'Curillo Chimbo', '0106046709', 'Bryan Adrian');
 INSERT INTO usuario(id_usuario, password, username, id_persona, id_rol)
 VALUES (1, '1234', 'Admin', 1, 1);
 
+--TIPOS DE ANEXOS
+INSERT INTO public.tipo_anexo(
+    nombre_tipo_anexo, ficha_anexo)
+VALUES
+    -- Tipos de Ficha Personal (fPer)
+    ('Documento de identidad', 'fPer'),
+    ('Documentos legales', 'fPer'),
+    ('Documento de identidad', 'fRep'),
+    -- Tipos de Ficha de Salud (fMed)
+    ('Certificado de salud', 'fMed'),
+    ('Carnet', 'fMed'),
+    -- Tipos de Ficha Educativa (fEdu)
+    ('Matricula', 'fEdu'),
+    ('Calificaciones', 'fEdu'),
+    -- Tipos de Ficha Inscripcion (fIns)
+    ('Informe socioeconomico', 'fIns'),
+    -- Anexos varios (extra)
+    ('Otros Anexos', 'extra');
 
 --TIPOS DE FAMILIA
 INSERT INTO public.tipo_familia(nombre_tipo)
