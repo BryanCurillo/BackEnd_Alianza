@@ -50,4 +50,8 @@ public class FichaEducativa implements Serializable {
     @OneToMany(mappedBy = "fichaEducativa", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<CursoGrado> cursoGrados;
+
+    @OneToMany(mappedBy = "fichaEducativa", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<AnexoEducativo> anexoEducativos;
 }

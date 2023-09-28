@@ -1,7 +1,7 @@
 package com.backend.alianza.controller;
 
-import com.backend.alianza.model.Anexo;
-import com.backend.alianza.service.AnexoServiceImpl;
+import com.backend.alianza.model.AnexoPersonal;
+import com.backend.alianza.service.AnexoPersonalServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,32 +10,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/anexo")
+@RequestMapping("/anexoPersonal")
 @CrossOrigin(origins = {"*"})
-public class AnexoController {
+public class AnexoPersonalController {
 
     @Autowired
-    AnexoServiceImpl anexoService;
+    AnexoPersonalServiceImpl anexoService;
 
     @GetMapping("/get")
-    public ResponseEntity<List<Anexo>> list() {
+    public ResponseEntity<List<AnexoPersonal>> list() {
         return new ResponseEntity<>(anexoService.findByAll(), HttpStatus.OK);
     }
 
     @PostMapping("/post")
-    public ResponseEntity<Anexo> create(@RequestBody Anexo a) {
+    public ResponseEntity<AnexoPersonal> create(@RequestBody AnexoPersonal a) {
         return new ResponseEntity<>(anexoService.save(a), HttpStatus.CREATED);
     }
 
     @PutMapping("/put/{id}")
-    public ResponseEntity<Anexo> update(@PathVariable Long id, @RequestBody Anexo a) {
-        Anexo anexo = anexoService.findById(id);
+    public ResponseEntity<AnexoPersonal> update(@PathVariable Long id, @RequestBody AnexoPersonal a) {
+        AnexoPersonal anexo = anexoService.findById(id);
         if (anexo != null) {
             try {
                 anexo.setDocumentoAnexo(a.getDocumentoAnexo());
-                anexo.setTipoDocumentoAnexo(a.getTipoDocumentoAnexo());
                 anexo.setFichaPersonal(a.getFichaPersonal());
-
+                anexo.setTipoAnexo(a.getTipoAnexo());
+                anexo.setFechaCarga(a.getFechaCarga());
+                anexo.setOtroTipoAnexo(a.getOtroTipoAnexo());
                 return new ResponseEntity<>(anexoService.save(anexo), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -47,7 +48,7 @@ public class AnexoController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Anexo> delete(@PathVariable Long id) {
+    public ResponseEntity<AnexoPersonal> delete(@PathVariable Long id) {
         anexoService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

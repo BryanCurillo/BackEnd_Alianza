@@ -1,6 +1,8 @@
 package com.backend.alianza.model;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +10,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Setter
@@ -64,4 +67,8 @@ public class FichaRepresentante {
     @ManyToOne
     @JoinColumn(name = "idFichaPersonal")
     private FichaPersonal fichaPersonal;
+
+    @OneToMany(mappedBy = "fichaRepresentante", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<AnexoRepresentante> anexoRepresentantes;
 }

@@ -78,7 +78,7 @@ public class FichaPersonal implements Serializable {
 
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Anexo> anexos;
+    private List<AnexoPersonal> anexosPersonales;
 
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
     @JsonIgnore

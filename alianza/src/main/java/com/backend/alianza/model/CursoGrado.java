@@ -19,7 +19,7 @@ public class CursoGrado  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idCursoGrado")
-    private int idCursoGrado;
+    private Long idCursoGrado;
 
     @Column(name = "nombreCursoGrado")
     private String nombreCursoGrado;

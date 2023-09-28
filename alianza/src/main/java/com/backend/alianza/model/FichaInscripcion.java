@@ -62,5 +62,7 @@ public class FichaInscripcion implements Serializable {
     @JsonIgnore
     private List<Asistencia> asistencias;
 
-
+    @OneToMany(mappedBy = "fichaInscripcion", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<AnexoInscripcion> anexosInscripcions;
 }

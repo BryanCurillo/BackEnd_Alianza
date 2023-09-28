@@ -1,7 +1,11 @@
 package com.backend.alianza.model;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Setter
@@ -39,5 +43,9 @@ public class FichaSalud {
     @ManyToOne
     @JoinColumn(name = "idFichaPersonal")
     private FichaPersonal fichaPersonal;
+
+    @OneToMany(mappedBy = "fichaSalud", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<AnexoMedico> anexoMedicos;
 
 }
