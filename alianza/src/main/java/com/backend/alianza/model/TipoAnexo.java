@@ -45,4 +45,12 @@ public class TipoAnexo implements Serializable {
     @JsonIgnore
     private List<AnexoRepresentante> anexoRepresentantes;
 
+    @OneToMany(mappedBy = "tipoAnexo", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<AnexoEducativo> anexoEducativos;
+
+    @OneToMany(mappedBy = "tipoAnexo", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<AnexoMedico> anexoMedicos;
+
 }
