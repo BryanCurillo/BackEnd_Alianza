@@ -60,6 +60,10 @@ public class FichaPersonal implements Serializable {
 
     private boolean estVinculacion;
 
+    @Column(name = "fechaRegistro")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private java.sql.Date fechaRegistro;
+
     @ManyToOne
     @JoinColumn(name = "idRangoEdad", referencedColumnName = "idRangoEdad")
     private RangoEdad rangoEdad;

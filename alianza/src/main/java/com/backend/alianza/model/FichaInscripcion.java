@@ -48,6 +48,10 @@ public class FichaInscripcion implements Serializable {
     @Column(name = "jornadaAsistenciaInscrip")
     private String jornadaAsistenciaInscrip;
 
+    @Column(name = "fechaRegistro")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private java.sql.Date fechaRegistro;
+
     @ManyToOne
     @JoinColumn(name = "idFichaPersonal")
     @JsonIgnoreProperties("fichaInscripcions") // Evita la referencia circular

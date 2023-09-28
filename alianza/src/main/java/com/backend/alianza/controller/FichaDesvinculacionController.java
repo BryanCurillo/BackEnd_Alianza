@@ -42,6 +42,7 @@ public class FichaDesvinculacionController {
                 fichaDesvinculacion.setAnexosExtras(a.getAnexosExtras());
                 fichaDesvinculacion.setMotivo(a.getMotivo());
                 fichaDesvinculacion.setFichaPersonal(a.getFichaPersonal());
+                fichaDesvinculacion.setFechaRegistro(a.getFechaRegistro());
 
                 return new ResponseEntity<>(fichaDesvinculacionService.save(fichaDesvinculacion), HttpStatus.CREATED);
             } catch (Exception e) {

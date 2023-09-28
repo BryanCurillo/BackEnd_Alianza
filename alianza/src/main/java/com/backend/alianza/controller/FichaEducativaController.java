@@ -44,6 +44,8 @@ public class FichaEducativaController {
                 fichaEducativa.setGradoEducativo(a.getGradoEducativo());
                 fichaEducativa.setDireccionEducativa(a.getDireccionEducativa());
                 fichaEducativa.setFichaPersonal(a.getFichaPersonal());
+                fichaEducativa.setFechaRegistro(a.getFechaRegistro());
+
 
                 return new ResponseEntity<>(fichaEducativaService.save(fichaEducativa), HttpStatus.CREATED);
             } catch (Exception e) {

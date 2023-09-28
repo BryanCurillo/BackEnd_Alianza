@@ -48,6 +48,8 @@ public class FichaInscripcionController {
                 fichaInscripcion.setFechaIngresoInscrip(a.getFechaIngresoInscrip());
                 fichaInscripcion.setJornadaAsistenciaInscrip(a.getJornadaAsistenciaInscrip());
                 fichaInscripcion.setSituacionIngresoInscrip(a.getSituacionIngresoInscrip());
+                fichaInscripcion.setFechaRegistro(a.getFechaRegistro());
+
 
                 return new ResponseEntity<>(fichaInscripcionService.save(fichaInscripcion), HttpStatus.CREATED);
             } catch (Exception e) {

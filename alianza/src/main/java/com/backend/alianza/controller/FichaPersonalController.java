@@ -103,6 +103,7 @@ public class FichaPersonalController {
                 fichaPersonal.setEtnia(fp.getEtnia());
                 fichaPersonal.setParroquia(fp.getParroquia());
                 fichaPersonal.setEstVinculacion(fp.isEstVinculacion());
+                fichaPersonal.setFechaRegistro(fp.getFechaRegistro());
 
                 return new ResponseEntity<>(service.save(fichaPersonal), HttpStatus.CREATED);
             } catch (Exception e) {

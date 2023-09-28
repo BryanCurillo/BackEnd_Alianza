@@ -4,7 +4,9 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -39,6 +41,10 @@ public class FichaSalud {
 
     @Column(name = "enfermedadesPrevalentesFichaSalud")
     private  String enfermedadesPrevalentesFichaSalud;
+
+    @Column(name = "fechaRegistro")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date fechaRegistro;
 
     @ManyToOne
     @JoinColumn(name = "idFichaPersonal")

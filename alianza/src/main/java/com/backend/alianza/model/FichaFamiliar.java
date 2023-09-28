@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 @Getter
@@ -41,6 +43,10 @@ public class FichaFamiliar implements Serializable {
     private boolean discapacidadIntegrantes;
 
     private String otrasSituaciones;
+
+    @Column(name = "fechaRegistro")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date fechaRegistro;
 
     @ManyToOne
     @JoinColumn(name = "idTipoFamilia", referencedColumnName = "idTipoFamilia")

@@ -25,6 +25,10 @@ public class FichaDesvinculacion implements Serializable {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechaDesvinculacion;
 
+    @Column(name = "fechaRegistro")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date fechaRegistro;
+
     @Column(name = "motivoDesvinculacion")
     private String motivo;
 

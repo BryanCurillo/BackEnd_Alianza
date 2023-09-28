@@ -52,6 +52,8 @@ public class FichaRepresentanteController {
                 fichaRepresentante.setNivelInstruccionRepre(a.getNivelInstruccionRepre());
                 fichaRepresentante.setParentescoRepre(a.getParentescoRepre());
                 fichaRepresentante.setFichaPersonal(a.getFichaPersonal());
+                fichaRepresentante.setFechaRegistro(a.getFechaRegistro());
+
 
                 return new ResponseEntity<>(fichaRepresentanteService.save(fichaRepresentante), HttpStatus.CREATED);
             } catch (Exception e) {

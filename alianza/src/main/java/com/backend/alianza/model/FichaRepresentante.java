@@ -64,6 +64,10 @@ public class FichaRepresentante {
     @Column(name = "parentescoRepre")
     private String parentescoRepre;
 
+    @Column(name = "fechaRegistro")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private java.sql.Date fechaRegistro;
+
     @ManyToOne
     @JoinColumn(name = "idFichaPersonal")
     private FichaPersonal fichaPersonal;

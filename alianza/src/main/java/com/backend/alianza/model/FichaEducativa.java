@@ -6,8 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.List;
 
 
@@ -42,6 +44,10 @@ public class FichaEducativa implements Serializable {
 
     @Column(name = "gradoEducativo")
     private String gradoEducativo;
+
+    @Column(name = "fechaRegistro")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private Date fechaRegistro;
 
     @ManyToOne
     @JoinColumn(name = "idFichaPersonal")
