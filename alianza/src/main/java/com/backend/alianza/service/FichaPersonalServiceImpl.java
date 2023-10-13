@@ -25,12 +25,35 @@ public class FichaPersonalServiceImpl extends GenericServiceImpl<FichaPersonal, 
         return repository.busquedaRE(ci, gen, rang, est);
     }
 
+    public List<FichaPersonal> gelAllByEst(boolean est) {
+        return repository.gelAllByEst(est);
+    }
+
+    public boolean cedulaUnicaFP(String ci) {
+        int cont = repository.cedulaUnicaFP(ci.trim());
+
+        if (cont > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public List<FichaPersonal> busqueda(String ci, String gen, boolean est) {
         return repository.busqueda(ci, gen, est);
     }
 
     public List<Object[]> busquedaCiNombre(boolean est, String busqueda) {
         return repository.busquedaCiNombre(est, busqueda);
+    }
+
+
+    public List<FichaPersonal> busquedaFP(boolean est, String busqueda) {
+        return repository.busquedaFP(est, busqueda);
+    }
+
+    public List<FichaPersonal> busquedaID(Long id) {
+        return repository.busquedaID(id);
     }
 
 }

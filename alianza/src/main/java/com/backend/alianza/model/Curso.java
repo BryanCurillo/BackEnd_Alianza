@@ -35,9 +35,6 @@ public class Curso implements Serializable {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechaInicio;
 
-
-    private Boolean estadoCurso;
-
     @ManyToOne
     @JoinColumn(name = "idRangoEdad", referencedColumnName = "idRangoEdad")
     private RangoEdad rangoEdad;

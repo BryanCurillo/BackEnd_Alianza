@@ -36,9 +36,15 @@ public class FichaPersonal implements Serializable {
 
     private String nombres;
 
-    private String ciIdentidad;
+    private String tipoIdentificacion;
+
+    private String ciPasaporte;
 
     private String nacionalidad;
+
+    private boolean actTrabInfantil;
+
+    private String detalleActTrabInfantil;
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

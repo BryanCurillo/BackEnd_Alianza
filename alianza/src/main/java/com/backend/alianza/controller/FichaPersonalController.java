@@ -1,8 +1,6 @@
 package com.backend.alianza.controller;
 
-import com.backend.alianza.model.FichaInscripcion;
 import com.backend.alianza.model.FichaPersonal;
-import com.backend.alianza.service.FichaFamiliarServiceImpl;
 import com.backend.alianza.service.FichaPersonalServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +24,11 @@ public class FichaPersonalController {
         return new ResponseEntity<>(service.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/cedulaUnicaFP")
+    public ResponseEntity<Boolean> cedulaUnicaFP(@RequestParam String ci) {
+        return new ResponseEntity<>(service.cedulaUnicaFP(ci), HttpStatus.OK);
+    }
+
     @GetMapping("/busquedaRE/{ci}/{gen}/{rang}/{est}")
     public ResponseEntity<List<FichaPersonal>> busquedaRE(@PathVariable String ci, @PathVariable String gen,
             @PathVariable int rang, @PathVariable boolean est) {
@@ -36,6 +39,13 @@ public class FichaPersonalController {
             gen = "";
         }
         return new ResponseEntity<>(service.busquedaRE(ci, gen, rang, est), HttpStatus.OK);
+    }
+
+
+    @GetMapping("/gelAllByEst/{est}")
+    public ResponseEntity<List<FichaPersonal>> gelAllByEst( @PathVariable boolean est) {
+
+        return new ResponseEntity<>(service.gelAllByEst(est), HttpStatus.OK);
     }
 
     @GetMapping("/busqueda/{ci}/{gen}/{est}")
@@ -51,6 +61,11 @@ public class FichaPersonalController {
         return new ResponseEntity<>(service.busqueda(ci, gen, est), HttpStatus.OK);
     }
 
+    @GetMapping("/busquedaID/{id}")
+    public ResponseEntity<List<FichaPersonal>> busquedaID(@PathVariable Long id){
+
+        return new ResponseEntity<>(service.busquedaID(id), HttpStatus.OK);
+    }
     @GetMapping("/busquedaCiNombre/{est}/{busqueda}")
     public ResponseEntity<List<Map<String, Object>>> busquedaCiNombre(@PathVariable boolean est,
             @PathVariable String busqueda) {
@@ -67,13 +82,23 @@ public class FichaPersonalController {
             resultadoMap.put("idFichaPersonal", fila[0]);
             resultadoMap.put("apellidos", fila[1]);
             resultadoMap.put("nombres", fila[2]);
-            resultadoMap.put("ciIdentidad", fila[3]);
+            resultadoMap.put("ciPasaporte", fila[3]);
             resultadoMap.put("estVinculacion", fila[4]);
             resultadoMap.put("foto", fila[5]);
             resultadosConNombres.add(resultadoMap);
         }
 
         return new ResponseEntity<>(resultadosConNombres, HttpStatus.OK);
+    }
+
+    @GetMapping("/busquedaFP/{est}/{busqueda}")
+    public ResponseEntity<List<FichaPersonal>> busquedaFP(@PathVariable boolean est,
+                                                          @PathVariable String busqueda) {
+        busqueda = busqueda.trim();
+        if (busqueda.equalsIgnoreCase("NA")) {
+            busqueda = "";
+        }
+        return new ResponseEntity<>(service.busquedaFP(est, busqueda), HttpStatus.OK);
     }
 
     @PostMapping("/post")
@@ -89,11 +114,15 @@ public class FichaPersonalController {
                 fichaPersonal.setFoto(fp.getFoto());
                 fichaPersonal.setApellidos(fp.getApellidos());
                 fichaPersonal.setNombres(fp.getNombres());
-                fichaPersonal.setCiIdentidad(fp.getCiIdentidad());
+                fichaPersonal.setTipoIdentificacion(fp.getTipoIdentificacion());
+                fichaPersonal.setCiPasaporte(fp.getCiPasaporte());
                 fichaPersonal.setNacionalidad(fp.getNacionalidad());
                 fichaPersonal.setFechaNacimiento(fp.getFechaNacimiento());
                 fichaPersonal.setGenero(fp.getGenero());
                 fichaPersonal.setZona(fp.getZona());
+                fichaPersonal.setActTrabInfantil(fp.isActTrabInfantil());
+                fichaPersonal.setDetalleActTrabInfantil(fp.getDetalleActTrabInfantil());
+
                 fichaPersonal.setBarrioSector(fp.getBarrioSector());
                 fichaPersonal.setDireccion(fp.getDireccion());
                 fichaPersonal.setReferencia(fp.getReferencia());

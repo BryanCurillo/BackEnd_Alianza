@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface FichaEducativaRepository extends JpaRepository<FichaEducativa,Long> {
+
     @Query(value = "SELECT *   " +
             " FROM public.ficha_educativa f   " +
             " WHERE f.id_ficha_personal = :id ", nativeQuery = true)

@@ -37,7 +37,6 @@ public class CursoController {
         Curso curso = service.findById(id);
         if (curso != null) {
             try {
-                curso.setEstadoCurso(c.getEstadoCurso());
                 curso.setNombreCurso(c.getNombreCurso());
                 curso.setDocente(c.getDocente());
                 curso.setFechaInicio(c.getFechaInicio());
