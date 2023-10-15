@@ -64,6 +64,12 @@ public class FichaRepresentante {
     @Column(name = "parentescoRepre")
     private String parentescoRepre;
 
+    private String tipoIdentificacion;
+
+    private String genero;
+
+    private String nacionalidad;
+
     @Column(name = "fechaRegistro")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private java.sql.Date fechaRegistro;

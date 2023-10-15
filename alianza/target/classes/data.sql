@@ -16,7 +16,7 @@ INSERT INTO rango_edad(lim_inferior, lim_superior)
 VALUES (5, 10),
        (11, 17);
 
-INSERT INTO persona(id_persona, apellidos_persona, ci_identidad_persona, nombres_persona)
+INSERT INTO persona(id_persona, apellidos_persona, ci_Pasaporte, nombres_persona)
 VALUES (1, 'Curillo Chimbo', '0106046709', 'Bryan Adrian');
 
 INSERT INTO usuario(id_usuario, password, username, id_persona, id_rol)
