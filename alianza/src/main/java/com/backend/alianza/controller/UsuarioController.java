@@ -1,8 +1,10 @@
 package com.backend.alianza.controller;
 
+import com.backend.alianza.model.FichaPersonal;
 import com.backend.alianza.model.Usuario;
 import com.backend.alianza.repository.UsuarioRepository;
 import com.backend.alianza.service.UsuarioService;
+import com.backend.alianza.service.UsuarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,8 @@ public class UsuarioController {
     @Autowired
     UsuarioRepository UserRepository;
 
+    @Autowired
+    public UsuarioServiceImpl serviceIpmpl;
 
 
     @PostMapping("/signin")
@@ -34,6 +38,32 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping("/filtroUser/{busqueda}/{rol}")
+    public ResponseEntity<List<Usuario>> filtroUser(@PathVariable String busqueda,@PathVariable long rol) {
+        busqueda = busqueda.trim();
+        if (busqueda.equalsIgnoreCase("NA")) {
+            busqueda = "";
+        }
+        if(rol>0){
+            System.out.println("\n\n\n\nCON ROL\n\n\n");
+            return new ResponseEntity<>(serviceIpmpl.filtroUser(busqueda, rol), HttpStatus.OK);
+
+        }else{
+            System.out.println("\n\n\n\nsin ROL\n\n\n");
+
+            return new ResponseEntity<>(serviceIpmpl.filtroUserSR(busqueda), HttpStatus.OK);
+
+        }
+    }
+
+    @GetMapping("/filtroUserSR/{busqueda}")
+    public ResponseEntity<List<Usuario>> filtroUserSR(@PathVariable String busqueda) {
+        busqueda = busqueda.trim();
+        if (busqueda.equalsIgnoreCase("NA")) {
+            busqueda = "";
+        }
+        return new ResponseEntity<>(serviceIpmpl.filtroUserSR(busqueda), HttpStatus.OK);
+    }
 
     @GetMapping("/read")
     public ResponseEntity<List<Usuario>> getUsuariosList() {
@@ -44,37 +74,46 @@ public class UsuarioController {
         }
     }
 
-    @PutMapping("/update/{usuarioId}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Usuario> actualizarUsuario(@PathVariable Long id, @RequestBody Usuario obj) {
-        Usuario fndobj = UsuarioService.findById(id);
-        if (fndobj == null) {
+        Usuario user = UsuarioService.findById(id);
+        if (user == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             try {
-                fndobj.setUsername(obj.getUsername());
-                fndobj.setPassword(obj.getPassword());
-                return new ResponseEntity<>(UsuarioService.save(fndobj), HttpStatus.CREATED);
+                user.setUsername(obj.getUsername());
+                user.setPassword(obj.getPassword());
+                user.setRol(obj.getRol());
+                user.setPersona(obj.getPersona());
+                user.setFechaRegistro(obj.getFechaRegistro());
+
+                return new ResponseEntity<>(UsuarioService.save(user), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
     }
 
-    @PutMapping("/delete/{usuarioId}")
-    public ResponseEntity<?> eliminar(@PathVariable Long id) {
-        Usuario usuario = UsuarioService.findById(id);
-        if (usuario == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } else {
-            try {
-                UsuarioService.delete(id);
-                return new ResponseEntity<>(UsuarioService.save(usuario), HttpStatus.CREATED);
-            } catch (Exception e) {
-                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        }
-    }
+//    @PutMapping("/delete/{usuarioId}")
+//    public ResponseEntity<?> eliminar(@PathVariable Long id) {
+//        Usuario usuario = UsuarioService.findById(id);
+//        if (usuario == null) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        } else {
+//            try {
+//                UsuarioService.delete(id);
+//                return new ResponseEntity<>(UsuarioService.save(usuario), HttpStatus.CREATED);
+//            } catch (Exception e) {
+//                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//            }
+//        }
+//    }
 
+    @DeleteMapping("/delete2/{id}")
+    public ResponseEntity<Usuario> delete2(@PathVariable Long id) {
+        UsuarioService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
     @GetMapping("/search/{username}")
     public Usuario obtenerUsuario(@PathVariable Long id) {
@@ -84,19 +123,24 @@ public class UsuarioController {
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario create(@RequestBody Usuario usuario) throws Exception {
-        // VERIFICAR SI HAY EXISTENCIA DE USUARIO EN NUESTRA BD..
-        if (!UserRepository.existsByUsername(usuario.getUsername())) {
             return UserRepository.save(usuario);
-        } else {
-            throw new Exception("Error: Usuario ya esta en la BD!");
-        }
     }
 
+    @GetMapping("/exists-username/{username}")
+    public ResponseEntity<Boolean> checkIfUsernameExists(@PathVariable String username) {
+        boolean exists = UserRepository.existsByUsername(username);
+        return ResponseEntity.ok(exists);
+    }
 
-
-
-
-
+//    @PostMapping("/signup")
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public ResponseEntity<?> create(@RequestBody Usuario usuario) {
+//        if (!UserRepository.existsByUsername(usuario.getUsername())) {
+//            return ResponseEntity.ok(UserRepository.save(usuario));
+//        } else {
+//            return ResponseEntity.badRequest().body("USERNAME_REPETIDO");
+//        }
+//    }
 
 
 }

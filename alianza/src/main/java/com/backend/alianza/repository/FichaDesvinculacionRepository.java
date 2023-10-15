@@ -11,6 +11,6 @@ public interface FichaDesvinculacionRepository extends JpaRepository<FichaDesvin
 
     @Query(value = "SELECT *  " +
             "  FROM ficha_desvinculacion f  " +
-            "  WHERE f.id_ficha_personal = :id", nativeQuery = true)
+            "  WHERE f.id_ficha_personal = :id ORDER BY fecha_desvinculacion desc   ", nativeQuery = true)
     List<FichaDesvinculacion> busquedaID(@Param("id") Long id);
 }

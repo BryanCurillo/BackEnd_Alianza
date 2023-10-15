@@ -20,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "fichaPersonal")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idFichaPersonal")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idFichaPersonal")
 public class FichaPersonal implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -107,7 +107,7 @@ public class FichaPersonal implements Serializable {
     private List<FichaFamiliar> fichaFamiliars;
 
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("fichaPersonal") // Evita la referencia circular
+    @JsonIgnore // Evita la referencia circular
     private List<FichaInscripcion> fichaInscripcions;
 
 

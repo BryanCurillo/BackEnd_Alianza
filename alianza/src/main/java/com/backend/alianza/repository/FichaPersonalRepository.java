@@ -14,13 +14,13 @@ public interface FichaPersonalRepository extends JpaRepository<FichaPersonal, Lo
             "  WHERE p.est_vinculacion= :est  " +
             "  AND  p.ci_pasaporte LIKE CONCAT ('%', :ci, '%')  " +
             "  AND p.genero LIKE CONCAT ('%', :gen, '%')  " +
-            "  AND p.id_rango_edad = :rang", nativeQuery = true)
+            "  AND p.id_rango_edad = :rang   ORDER BY apellidos, nombres", nativeQuery = true)
     List<FichaPersonal> busquedaRE(@Param("ci") String ci,
                                    @Param("gen") String gen,
                                    @Param("rang") int rang,
                                    @Param("est") boolean est);
 
-    @Query(value = "SELECT COUNT(*) FROM ficha_personal WHERE ci_pasaporte = :ci", nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM ficha_personal WHERE ci_pasaporte = :ci  ORDER BY apellidos, nombres", nativeQuery = true)
     int cedulaUnicaFP(@Param("ci") String ci);
 
 
@@ -32,7 +32,7 @@ public interface FichaPersonalRepository extends JpaRepository<FichaPersonal, Lo
             "  FROM ficha_personal p  " +
             "  WHERE p.est_vinculacion= :est  " +
             "  AND  p.ci_pasaporte LIKE CONCAT ('%', :ci, '%')  " +
-            "  AND p.genero LIKE CONCAT ('%', :gen, '%')  ", nativeQuery = true)
+            "  AND p.genero LIKE CONCAT ('%', :gen, '%')  ORDER BY apellidos, nombres", nativeQuery = true)
     List<FichaPersonal> busqueda(@Param("ci") String ci,
                                  @Param("gen") String gen,
                                  @Param("est") boolean est);
@@ -47,9 +47,11 @@ public interface FichaPersonalRepository extends JpaRepository<FichaPersonal, Lo
             +
             "                OR CONCAT(LOWER(p.nombres), ' ', LOWER(p.apellidos)) LIKE LOWER (CONCAT('%', :busqueda ,'%')) "
             +
-            "            )", nativeQuery = true)
+            "            ) ORDER BY apellidos, nombres", nativeQuery = true)
     List<Object[]> busquedaCiNombre(@Param("est") boolean est,
                                     @Param("busqueda") String busqueda);
+
+
 
     @Query(value = " SELECT *  " +
             "             FROM ficha_personal p " +
@@ -67,7 +69,7 @@ public interface FichaPersonalRepository extends JpaRepository<FichaPersonal, Lo
 
     @Query(value = "SELECT *   " +
             " FROM ficha_personal f   " +
-            " WHERE f.id_ficha_personal = :id ", nativeQuery = true)
+            " WHERE f.id_ficha_personal = :id ORDER BY apellidos, nombres", nativeQuery = true)
     List<FichaPersonal> busquedaID(@Param("id") Long id);
 
 }

@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 
@@ -28,6 +29,10 @@ public class Usuario implements Serializable {
     private String username;
     @Column(name = "password")
     private String password;
+
+    @Column(name = "fechaRegistro")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private java.sql.Date fechaRegistro;
 
     @OneToOne
     @JoinColumn(name = "idPersona")

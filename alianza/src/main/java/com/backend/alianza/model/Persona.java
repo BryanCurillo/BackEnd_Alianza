@@ -30,7 +30,9 @@ public class Persona implements Serializable {
 
     private String nombresPersona;
 
-    private String ciIdentidadPersona;
+    private String tipoIdentificacion;
+
+    private String ciPasaporte;
 
     @JsonIgnore
     @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
