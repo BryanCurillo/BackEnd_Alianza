@@ -20,8 +20,11 @@ public interface FichaPersonalRepository extends JpaRepository<FichaPersonal, Lo
                                    @Param("rang") int rang,
                                    @Param("est") boolean est);
 
-    @Query(value = "SELECT COUNT(*) FROM ficha_personal WHERE ci_pasaporte = :ci ", nativeQuery = true)
-    int cedulaUnicaFP(@Param("ci") String ci);
+//    @Query(value = "SELECT COUNT(*) FROM ficha_personal WHERE ci_pasaporte = :ci ", nativeQuery = true)
+//    int cedulaUnicaFP(@Param("ci") String ci);
+
+    Boolean existsByCiPasaporte(String username);
+
 
 
     @Query(value = "SELECT * " +

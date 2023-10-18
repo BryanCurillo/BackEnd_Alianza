@@ -2,6 +2,7 @@ package com.backend.alianza.controller;
 
 
 import com.backend.alianza.model.Curso;
+import com.backend.alianza.repository.CursoRepository;
 import com.backend.alianza.service.CursoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,17 @@ public class CursoController {
     @Autowired
     public CursoServiceImpl service;
 
+    @Autowired
+    CursoRepository cursoRepository;
+
+
+    @GetMapping("/existsByNombreCurso/{nombreCurso}")
+    public ResponseEntity<Boolean> existsByNombreCurso(@PathVariable String nombreCurso) {
+        boolean exists = cursoRepository.existsByNombreCurso(nombreCurso);
+        return ResponseEntity.ok(exists);
+    }
+
+
     @GetMapping("/get")
     public ResponseEntity<List<Curso>> list() {
         return new ResponseEntity<>(service.findByAll(), HttpStatus.OK);
@@ -24,6 +36,11 @@ public class CursoController {
 
     @GetMapping("/busquedaCurso/{busqueda}")
     public ResponseEntity<List<Curso>> busquedaCurso(@PathVariable String busqueda) {
+        busqueda = busqueda.trim();
+        if (busqueda.equalsIgnoreCase("NA")) {
+            busqueda = "";
+        }
+
         return new ResponseEntity<>(service.busquedaCurso(busqueda), HttpStatus.OK);
     }
 

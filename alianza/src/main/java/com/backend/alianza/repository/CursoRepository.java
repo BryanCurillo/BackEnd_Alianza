@@ -9,6 +9,9 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface CursoRepository extends JpaRepository<Curso,Long> {
+
+    Boolean existsByNombreCurso(String username);
+
     @Query(value = "Select c.* from curso c where c.id_docente = ?;", nativeQuery = true)
     List<Curso> listaCurso(@Param("id_docente") Long id_docente);
 

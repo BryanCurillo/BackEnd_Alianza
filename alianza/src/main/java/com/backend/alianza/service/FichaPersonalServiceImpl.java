@@ -30,13 +30,14 @@ public class FichaPersonalServiceImpl extends GenericServiceImpl<FichaPersonal, 
     }
 
     public boolean cedulaUnicaFP(String ci) {
-        int cont = repository.cedulaUnicaFP(ci.trim());
-
-        if (cont > 0) {
-            return false;
-        } else {
-            return true;
-        }
+//        int cont = repository.cedulaUnicaFP(ci.trim());
+//
+//        if (cont > 0) {
+//            return false;
+//        } else {
+//            return true;
+//        }
+        return repository.existsByCiPasaporte(ci.trim());
     }
 
     public List<FichaPersonal> busqueda(String ci, String gen, boolean est) {
