@@ -49,6 +49,7 @@ public class FichaInscripcionController {
                 fichaInscripcion.setJornadaAsistenciaInscrip(a.getJornadaAsistenciaInscrip());
                 fichaInscripcion.setSituacionIngresoInscrip(a.getSituacionIngresoInscrip());
                 fichaInscripcion.setFechaRegistro(a.getFechaRegistro());
+                fichaInscripcion.setFichaPersonal(a.getFichaPersonal());
 
 
                 return new ResponseEntity<>(fichaInscripcionService.save(fichaInscripcion), HttpStatus.CREATED);
