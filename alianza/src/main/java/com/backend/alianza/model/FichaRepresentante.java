@@ -32,7 +32,7 @@ public class FichaRepresentante {
     @Column(name = "apellidosRepre")
     private String apellidosRepre;
 
-    @Column(name = "cedulaRepre", unique = true)
+    @Column(name = "cedulaRepre")
     private String cedulaRepre;
 
     @Column(name = "contactoRepre")

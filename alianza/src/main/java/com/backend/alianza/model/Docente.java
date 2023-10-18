@@ -30,9 +30,7 @@ public class Docente implements Serializable {
 
     private String materiaDocente;
 
-    @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List <Curso> cursos;
+
 
     @ManyToOne
     @JoinColumn(name = "idPersona")

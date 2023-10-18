@@ -39,21 +39,25 @@ public class UsuarioController {
     }
 
     @GetMapping("/filtroUser/{busqueda}/{rol}")
-    public ResponseEntity<List<Usuario>> filtroUser(@PathVariable String busqueda,@PathVariable long rol) {
+    public ResponseEntity<List<Usuario>> filtroUser(@PathVariable String busqueda, @PathVariable long rol) {
         busqueda = busqueda.trim();
         if (busqueda.equalsIgnoreCase("NA")) {
             busqueda = "";
         }
-        if(rol>0){
-            System.out.println("\n\n\n\nCON ROL\n\n\n");
+        if (rol > 0) {
             return new ResponseEntity<>(serviceIpmpl.filtroUser(busqueda, rol), HttpStatus.OK);
 
-        }else{
-            System.out.println("\n\n\n\nsin ROL\n\n\n");
+        } else {
 
             return new ResponseEntity<>(serviceIpmpl.filtroUserSR(busqueda), HttpStatus.OK);
 
         }
+    }
+
+    @GetMapping("/userXrol/{rol}")
+    public ResponseEntity<List<Usuario>> userXrol(@PathVariable long rol) {
+
+        return new ResponseEntity<>(serviceIpmpl.userXrol(rol), HttpStatus.OK);
     }
 
     @GetMapping("/filtroUserSR/{busqueda}")
@@ -123,7 +127,7 @@ public class UsuarioController {
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario create(@RequestBody Usuario usuario) throws Exception {
-            return UserRepository.save(usuario);
+        return UserRepository.save(usuario);
     }
 
     @GetMapping("/exists-username/{username}")

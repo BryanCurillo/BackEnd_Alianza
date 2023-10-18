@@ -12,4 +12,6 @@ public interface FichaRepresentanteRepository extends JpaRepository<FichaReprese
             " FROM public.ficha_representante f " +
             "  WHERE f.id_ficha_personal = :id", nativeQuery = true)
     List<FichaRepresentante> busquedaID(@Param("id") Long id);
+
+    Boolean existsByCedulaRepre(String cedulaRepre);
 }

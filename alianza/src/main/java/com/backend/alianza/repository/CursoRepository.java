@@ -12,4 +12,13 @@ public interface CursoRepository extends JpaRepository<Curso,Long> {
     @Query(value = "Select c.* from curso c where c.id_docente = ?;", nativeQuery = true)
     List<Curso> listaCurso(@Param("id_docente") Long id_docente);
 
+    @Query(value = "SELECT c.* " +
+            " FROM curso c JOIN usuario u ON (u.id_usuario = c.id_usuario) " +
+            " JOIN persona p ON (p.id_persona = u.id_persona) " +
+            " WHERE " +
+            " CONCAT(LOWER(p.nombres_persona), ' ', LOWER(p.apellidos_persona)) LIKE LOWER (CONCAT('%', :busqueda ,'%'))" +
+            " OR CONCAT(LOWER(p.apellidos_persona), ' ', LOWER(p.nombres_persona)) LIKE LOWER (CONCAT('%', :busqueda ,'%'))" +
+            " OR LOWER(c.nombre_curso) LIKE LOWER (CONCAT('%', :busqueda ,'%'))", nativeQuery = true)
+    List<Curso> busquedaCurso(@Param("busqueda") String busqueda);
+
 }

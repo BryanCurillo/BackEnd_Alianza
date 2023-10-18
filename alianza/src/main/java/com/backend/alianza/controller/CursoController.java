@@ -22,6 +22,11 @@ public class CursoController {
         return new ResponseEntity<>(service.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/busquedaCurso/{busqueda}")
+    public ResponseEntity<List<Curso>> busquedaCurso(@PathVariable String busqueda) {
+        return new ResponseEntity<>(service.busquedaCurso(busqueda), HttpStatus.OK);
+    }
+
     @GetMapping("/getCurso/{idDocente}")
     public ResponseEntity<List<Curso>> listCursos(@PathVariable Long idDocente) {
         return new ResponseEntity<>(service.listaCurso(idDocente), HttpStatus.OK);
@@ -41,6 +46,7 @@ public class CursoController {
                 curso.setDocente(c.getDocente());
                 curso.setFechaInicio(c.getFechaInicio());
                 curso.setRangoEdad(c.getRangoEdad());
+                curso.setFechaRegistro(c.getFechaRegistro());
 
                 return new ResponseEntity<>(service.save(curso), HttpStatus.CREATED);
             } catch (Exception e) {

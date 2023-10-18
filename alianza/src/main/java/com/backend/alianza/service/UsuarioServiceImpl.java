@@ -34,4 +34,9 @@ public class UsuarioServiceImpl extends GenericServiceImpl<Usuario, Long> implem
     public List<Usuario> filtroUserSR(String busqueda) {
         return repository.filtroUserSR(busqueda);
     }
+
+
+    public List<Usuario> userXrol(long rol) {
+        return repository.userXrol(rol);
+    }
 }

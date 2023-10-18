@@ -23,4 +23,8 @@ public class CursoServiceImpl extends GenericServiceImpl<Curso, Long> implements
     public List<Curso> listaCurso(Long idDocente) {
         return cursoRepository.listaCurso(idDocente);
     }
+
+    public List<Curso> busquedaCurso(String busqueda) {
+        return cursoRepository.busquedaCurso(busqueda);
+    }
 }

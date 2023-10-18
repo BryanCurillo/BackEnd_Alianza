@@ -24,6 +24,21 @@ public class FichaSalud {
     @Column(name = "condicionesMedicas")
     private String condicionesMedicas;
 
+    private String condicionesMedicas2;
+    private String condicionesMedicas3;
+    private String condicionesMedicas4;
+    private String condicionesMedicas5;
+    private String condicionesMedicasAdd;
+
+    private  boolean carnetDiscapacidad;
+
+    private double masaCorporal;
+
+    private  String situacionPsicoemocional;
+
+
+
+
     @Column(name = "pesoFichaSalud")
     private double pesoFichaSalud;
 

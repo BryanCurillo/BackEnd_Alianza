@@ -40,8 +40,12 @@ public class Curso implements Serializable {
     private RangoEdad rangoEdad;
 
     @ManyToOne
-    @JoinColumn(name = "idDocente", referencedColumnName = "idDocente")
-    private Docente docente;
+    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
+    private Usuario docente;
+
+    @Column(name = "fechaRegistro")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private java.sql.Date fechaRegistro;
 
     @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
     @JsonIgnore

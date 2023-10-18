@@ -38,4 +38,11 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
             " ORDER BY p.apellidos_persona, p.nombres_persona", nativeQuery = true)
     List<Usuario> filtroUserSR(@Param("busqueda") String busqueda);
 
+    @Query(value = "SELECT u.* " +
+            " FROM usuario u JOIN persona p ON(u.id_persona = p.id_persona) " +
+            " WHERE u.id_rol = :rol " +
+            " ORDER BY p.apellidos_persona, p.nombres_persona", nativeQuery = true)
+    List<Usuario> userXrol(@Param("rol") long rol);
+
+
 }

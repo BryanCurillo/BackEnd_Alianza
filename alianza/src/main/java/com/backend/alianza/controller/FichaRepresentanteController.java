@@ -32,6 +32,7 @@ public class FichaRepresentanteController {
     @PostMapping("/post")
     public ResponseEntity<FichaRepresentante> create(@RequestBody FichaRepresentante a) {
         return new ResponseEntity<>(fichaRepresentanteService.save(a), HttpStatus.CREATED);
+
     }
 
     @PutMapping("/put/{id}")
@@ -53,6 +54,11 @@ public class FichaRepresentanteController {
                 fichaRepresentante.setParentescoRepre(a.getParentescoRepre());
                 fichaRepresentante.setFichaPersonal(a.getFichaPersonal());
                 fichaRepresentante.setFechaRegistro(a.getFechaRegistro());
+                fichaRepresentante.setTipoIdentificacion(a.getTipoIdentificacion());
+                fichaRepresentante.setGenero(a.getGenero());
+                fichaRepresentante.setNacionalidad(a.getNacionalidad());
+
+
 
 
                 return new ResponseEntity<>(fichaRepresentanteService.save(fichaRepresentante), HttpStatus.CREATED);

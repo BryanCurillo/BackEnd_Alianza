@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -42,5 +43,8 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "idRol")
     private Rol rol;
 
+    @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Curso> cursos;
 
 }
