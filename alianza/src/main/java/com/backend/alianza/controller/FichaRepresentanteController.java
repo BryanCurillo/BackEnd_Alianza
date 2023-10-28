@@ -54,9 +54,9 @@ public class FichaRepresentanteController {
                 fichaRepresentante.setParentescoRepre(a.getParentescoRepre());
                 fichaRepresentante.setFichaPersonal(a.getFichaPersonal());
                 fichaRepresentante.setFechaRegistro(a.getFechaRegistro());
-                fichaRepresentante.setTipoIdentificacion(a.getTipoIdentificacion());
-                fichaRepresentante.setGenero(a.getGenero());
-                fichaRepresentante.setNacionalidad(a.getNacionalidad());
+                fichaRepresentante.setTipoIdentificacionRepre(a.getTipoIdentificacionRepre());
+                fichaRepresentante.setGeneroRepre(a.getGeneroRepre());
+                fichaRepresentante.setNacionalidadRepre(a.getNacionalidadRepre());
 
 
 

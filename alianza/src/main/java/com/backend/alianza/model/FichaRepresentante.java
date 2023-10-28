@@ -64,11 +64,11 @@ public class FichaRepresentante {
     @Column(name = "parentescoRepre")
     private String parentescoRepre;
 
-    private String tipoIdentificacion;
+    private String tipoIdentificacionRepre;
 
-    private String genero;
+    private String generoRepre;
 
-    private String nacionalidad;
+    private String nacionalidadRepre;
 
     @Column(name = "fechaRegistro")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

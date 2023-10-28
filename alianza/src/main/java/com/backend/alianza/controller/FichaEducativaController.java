@@ -22,7 +22,7 @@ public class FichaEducativaController {
     }
 
     @GetMapping("/busquedaID/{id}")
-    public ResponseEntity<List<FichaEducativa>> busquedaID(@PathVariable Long id){
+    public ResponseEntity<List<FichaEducativa>> busquedaID(@PathVariable Long id) {
 
         return new ResponseEntity<>(fichaEducativaService.busquedaID(id), HttpStatus.OK);
     }
@@ -45,6 +45,9 @@ public class FichaEducativaController {
                 fichaEducativa.setDireccionEducativa(a.getDireccionEducativa());
                 fichaEducativa.setFichaPersonal(a.getFichaPersonal());
                 fichaEducativa.setFechaRegistro(a.getFechaRegistro());
+                fichaEducativa.setRepitente(a.isRepitente());
+                fichaEducativa.setDetalleRepitente(a.getDetalleRepitente());
+                fichaEducativa.setSituacionPsicopedagogica(a.getSituacionPsicopedagogica());
 
 
                 return new ResponseEntity<>(fichaEducativaService.save(fichaEducativa), HttpStatus.CREATED);

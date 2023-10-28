@@ -45,6 +45,13 @@ public class FichaEducativa implements Serializable {
     @Column(name = "gradoEducativo")
     private String gradoEducativo;
 
+    private boolean repitente;
+
+    private String detalleRepitente;
+
+    private String situacionPsicopedagogica;
+
+
     @Column(name = "fechaRegistro")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechaRegistro;

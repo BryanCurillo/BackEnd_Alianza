@@ -44,10 +44,12 @@ public class CursoController {
         return new ResponseEntity<>(service.busquedaCurso(busqueda), HttpStatus.OK);
     }
 
-    @GetMapping("/getCurso/{idDocente}")
-    public ResponseEntity<List<Curso>> listCursos(@PathVariable Long idDocente) {
-        return new ResponseEntity<>(service.listaCurso(idDocente), HttpStatus.OK);
+
+    @GetMapping("/cursoByUser")
+    public ResponseEntity<List<Curso>> cursoByUser(@RequestParam("id") Long id) {
+        return new ResponseEntity<>(service.cursoByUser(id), HttpStatus.OK);
     }
+
 
     @PostMapping("/post")
     public ResponseEntity<Curso> create(@RequestBody Curso c) {

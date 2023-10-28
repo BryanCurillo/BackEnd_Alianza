@@ -26,7 +26,7 @@ public class FichaInscripcionServiceImpl extends GenericServiceImpl<FichaInscrip
         return fichaInscripcionRepository.busquedaID(id);
     }
 
-    public List<FichaInscripcion> busquedaCurso(Long idCurso) {
-        return fichaInscripcionRepository.listaEstudiantes(idCurso);
+    public List<FichaInscripcion> listaEstudiantes(Long id) {
+        return fichaInscripcionRepository.listaEstudiantes(id);
     }
 }

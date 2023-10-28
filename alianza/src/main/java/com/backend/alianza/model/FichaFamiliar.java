@@ -42,7 +42,12 @@ public class FichaFamiliar implements Serializable {
 
     private boolean discapacidadIntegrantes;
 
+    private boolean beneficio;
+
     private String otrasSituaciones;
+
+    private String detalleDiscapacidad;
+
 
     @Column(name = "fechaRegistro")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

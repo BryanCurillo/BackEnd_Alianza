@@ -26,10 +26,9 @@ public class PersonaController {
         return new ResponseEntity<>(personaService.findByAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/exists-identificacion/{dni}")
-    public ResponseEntity<Boolean> checkIfDNIExists(@PathVariable String dni) {
-        boolean exists = personaRepository.existsByCiPasaporte(dni);
-        return ResponseEntity.ok(exists);
+    @GetMapping("/existsDNI")
+    public ResponseEntity<Boolean> existsDNI(@RequestParam String dni) {
+        return new ResponseEntity<>(personaRepository.existsByCiPasaporte(dni.trim()), HttpStatus.OK);
     }
 
 //    @PostMapping("/post")
@@ -39,12 +38,10 @@ public class PersonaController {
 //    }
 
     @PostMapping("/post")
-    public ResponseEntity<?> create(@RequestBody Persona pe) {
-        if (!personaRepository.existsByCiPasaporte(pe.getCiPasaporte())) {
+    public ResponseEntity<Persona> create(@RequestBody Persona pe) {
+
+        System.out.println("\n\n\n\n "+pe.getIdPersona()+"\n\n\n");
             return new ResponseEntity<>(personaService.save(pe), HttpStatus.CREATED);
-        }else{
-            return ResponseEntity.badRequest().body("IDENTIFICACION_REPETIDA");
-        }
     }
 
     @PutMapping("/put/{id}")

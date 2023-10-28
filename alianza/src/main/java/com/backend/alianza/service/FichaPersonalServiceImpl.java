@@ -40,9 +40,21 @@ public class FichaPersonalServiceImpl extends GenericServiceImpl<FichaPersonal, 
         return repository.existsByCiPasaporte(ci.trim());
     }
 
+    public List<Object[]> reporteGeneralRE(String ci, String gen, int rang, boolean est) {
+        return repository.reporteGeneralRE(ci, gen, rang, est);
+    }
+
+    public List<Object[]> reporteGeneral(String ci, String gen,  boolean est) {
+        return repository.reporteGeneral(ci, gen, est);
+    }
+
     public List<FichaPersonal> busqueda(String ci, String gen, boolean est) {
         return repository.busqueda(ci, gen, est);
     }
+
+//    public List<Object[]> busquedaReporte(String ci, String gen, boolean est) {
+//        return repository.busquedaReporte(ci, gen, est);
+//    }
 
     public List<Object[]> busquedaCiNombre(boolean est, String busqueda) {
         return repository.busquedaCiNombre(est, busqueda);

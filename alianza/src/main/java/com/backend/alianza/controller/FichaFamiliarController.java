@@ -49,6 +49,8 @@ public class FichaFamiliarController {
                 fichaFamiliar.setFichaPersonal(ff.getFichaPersonal());
                 fichaFamiliar.setTipoFamilia(ff.getTipoFamilia());
                 fichaFamiliar.setFechaRegistro(ff.getFechaRegistro());
+                fichaFamiliar.setBeneficio(ff.isBeneficio());
+                fichaFamiliar.setDetalleDiscapacidad(ff.getDetalleDiscapacidad());
 
 
                 return new ResponseEntity<>(service.save(fichaFamiliar), HttpStatus.CREATED);

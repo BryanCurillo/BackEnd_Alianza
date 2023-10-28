@@ -20,8 +20,8 @@ public class CursoServiceImpl extends GenericServiceImpl<Curso, Long> implements
         return cursoRepository;
     }
 
-    public List<Curso> listaCurso(Long idDocente) {
-        return cursoRepository.listaCurso(idDocente);
+    public List<Curso> cursoByUser(Long userId) {
+        return cursoRepository.cursoByUser(userId);
     }
 
     public List<Curso> busquedaCurso(String busqueda) {

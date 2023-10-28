@@ -12,8 +12,8 @@ public interface CursoRepository extends JpaRepository<Curso,Long> {
 
     Boolean existsByNombreCurso(String username);
 
-    @Query(value = "Select c.* from curso c where c.id_docente = ?;", nativeQuery = true)
-    List<Curso> listaCurso(@Param("id_docente") Long id_docente);
+    @Query(value = "Select c.* from curso c where c.id_usuario = :id", nativeQuery = true)
+    List<Curso> cursoByUser(@Param("id") Long id);
 
     @Query(value = "SELECT c.* " +
             " FROM curso c JOIN usuario u ON (u.id_usuario = c.id_usuario) " +
