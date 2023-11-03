@@ -2,6 +2,7 @@ package com.backend.alianza.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -51,6 +52,9 @@ public class FichaInscripcion implements Serializable {
     @Column(name = "fechaRegistro")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private java.sql.Date fechaRegistro;
+
+    @Column(name = "anexosFichaSocioEconomica", columnDefinition = "TEXT")
+    private String anexosFichaSocioEconomica;
 
     @ManyToOne
     @JoinColumn(name = "idFichaPersonal")

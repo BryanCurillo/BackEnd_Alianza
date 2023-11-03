@@ -52,8 +52,6 @@ public class FichaEducativaController {
                 fichaEducativa.setAnexosCalificaciones1(a.getAnexosCalificaciones1());
                 fichaEducativa.setAnexosCalificaciones2(a.getAnexosCalificaciones2());
                 fichaEducativa.setAnexosCalificaciones3(a.getAnexosCalificaciones3());
-
-
                 return new ResponseEntity<>(fichaEducativaService.save(fichaEducativa), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

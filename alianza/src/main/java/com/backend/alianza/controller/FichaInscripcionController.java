@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/fichaInscripcion")
-@CrossOrigin(origins = { "*" })
+@CrossOrigin(origins = {"*"})
 public class FichaInscripcionController {
 
     @Autowired
@@ -24,7 +24,7 @@ public class FichaInscripcionController {
     }
 
     @GetMapping("/busquedaID/{id}")
-    public ResponseEntity<List<FichaInscripcion>> busquedaID(@PathVariable Long id){
+    public ResponseEntity<List<FichaInscripcion>> busquedaID(@PathVariable Long id) {
         return new ResponseEntity<>(fichaInscripcionService.busquedaID(id), HttpStatus.OK);
     }
 
@@ -51,13 +51,11 @@ public class FichaInscripcionController {
                 fichaInscripcion.setSituacionIngresoInscrip(a.getSituacionIngresoInscrip());
                 fichaInscripcion.setFechaRegistro(a.getFechaRegistro());
                 fichaInscripcion.setFichaPersonal(a.getFichaPersonal());
-
-
+                fichaInscripcion.setAnexosFichaSocioEconomica(a.getAnexosFichaSocioEconomica());
                 return new ResponseEntity<>(fichaInscripcionService.save(fichaInscripcion), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
-
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
