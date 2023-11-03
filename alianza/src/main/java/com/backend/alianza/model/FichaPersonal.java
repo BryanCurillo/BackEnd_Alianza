@@ -66,6 +66,12 @@ public class FichaPersonal implements Serializable {
 
     private boolean estVinculacion;
 
+    @Column(name = "anexosCedula", columnDefinition = "TEXT")
+    private String anexosCedula;
+
+    @Column(name = "anexosDocumentosLegales", columnDefinition = "TEXT")
+    private String anexosDocumentosLegales;
+
     @Column(name = "fechaRegistro")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private java.sql.Date fechaRegistro;
@@ -107,7 +113,7 @@ public class FichaPersonal implements Serializable {
     private List<FichaFamiliar> fichaFamiliars;
 
     @OneToMany(mappedBy = "fichaPersonal", cascade = CascadeType.ALL)
-    @JsonIgnore // Evita la referencia circular
+    @JsonIgnore
     private List<FichaInscripcion> fichaInscripcions;
 
 

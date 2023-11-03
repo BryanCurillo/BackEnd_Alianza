@@ -48,6 +48,9 @@ public class FichaSaludController {
                 fichaSalud.setTipoDiscapacidadFichaSalud(a.getTipoDiscapacidadFichaSalud());
                 fichaSalud.setFichaPersonal(a.getFichaPersonal());
                 fichaSalud.setFechaRegistro(a.getFechaRegistro());
+                fichaSalud.setAnexosCertificadoSalud(a.getAnexosCertificadoSalud());
+                fichaSalud.setAnexosCertificadoSalud2(a.getAnexosCertificadoSalud2());
+                fichaSalud.setAnexosDiscapacidad(a.getAnexosDiscapacidad());
 
 
                 return new ResponseEntity<>(fichaSaludService.save(fichaSalud), HttpStatus.CREATED);

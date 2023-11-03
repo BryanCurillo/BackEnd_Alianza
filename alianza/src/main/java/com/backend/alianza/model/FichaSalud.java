@@ -25,19 +25,20 @@ public class FichaSalud {
     private String condicionesMedicas;
 
     private String condicionesMedicas2;
+
     private String condicionesMedicas3;
+
     private String condicionesMedicas4;
+
     private String condicionesMedicas5;
+
     private String condicionesMedicasAdd;
 
-    private  boolean carnetDiscapacidad;
+    private boolean carnetDiscapacidad;
 
     private double masaCorporal;
 
-    private  String situacionPsicoemocional;
-
-
-
+    private String situacionPsicoemocional;
 
     @Column(name = "pesoFichaSalud")
     private double pesoFichaSalud;
@@ -55,11 +56,21 @@ public class FichaSalud {
     private double porcentajeDiscapacidadFichaSalud;
 
     @Column(name = "enfermedadesPrevalentesFichaSalud")
-    private  String enfermedadesPrevalentesFichaSalud;
+    private String enfermedadesPrevalentesFichaSalud;
+
+    @Column(name = "anexosCertificadoSalud", columnDefinition = "TEXT")
+    private String anexosCertificadoSalud;
+
+    @Column(name = "anexosCertificadoSalud2", columnDefinition = "TEXT")
+    private String anexosCertificadoSalud2;
+
+    @Column(name = "anexosDiscapacidad", columnDefinition = "TEXT")
+    private String anexosDiscapacidad;
 
     @Column(name = "fechaRegistro")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechaRegistro;
+
 
     @ManyToOne
     @JoinColumn(name = "idFichaPersonal")

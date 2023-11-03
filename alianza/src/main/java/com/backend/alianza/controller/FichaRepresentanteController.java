@@ -24,7 +24,7 @@ public class FichaRepresentanteController {
     }
 
     @GetMapping("/busquedaID/{id}")
-    public ResponseEntity<List<FichaRepresentante>> busquedaID(@PathVariable Long id){
+    public ResponseEntity<List<FichaRepresentante>> busquedaID(@PathVariable Long id) {
 
         return new ResponseEntity<>(fichaRepresentanteService.busquedaID(id), HttpStatus.OK);
     }
@@ -57,10 +57,7 @@ public class FichaRepresentanteController {
                 fichaRepresentante.setTipoIdentificacionRepre(a.getTipoIdentificacionRepre());
                 fichaRepresentante.setGeneroRepre(a.getGeneroRepre());
                 fichaRepresentante.setNacionalidadRepre(a.getNacionalidadRepre());
-
-
-
-
+                fichaRepresentante.setAnexosCedulaPPFF(a.getAnexosCedulaPPFF());
                 return new ResponseEntity<>(fichaRepresentanteService.save(fichaRepresentante), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

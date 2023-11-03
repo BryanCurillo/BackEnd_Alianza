@@ -48,6 +48,10 @@ public class FichaEducativaController {
                 fichaEducativa.setRepitente(a.isRepitente());
                 fichaEducativa.setDetalleRepitente(a.getDetalleRepitente());
                 fichaEducativa.setSituacionPsicopedagogica(a.getSituacionPsicopedagogica());
+                fichaEducativa.setAnexosMatricula(a.getAnexosMatricula());
+                fichaEducativa.setAnexosCalificaciones1(a.getAnexosCalificaciones1());
+                fichaEducativa.setAnexosCalificaciones2(a.getAnexosCalificaciones2());
+                fichaEducativa.setAnexosCalificaciones3(a.getAnexosCalificaciones3());
 
 
                 return new ResponseEntity<>(fichaEducativaService.save(fichaEducativa), HttpStatus.CREATED);

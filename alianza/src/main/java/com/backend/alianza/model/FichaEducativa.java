@@ -1,7 +1,9 @@
 package com.backend.alianza.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -51,10 +53,21 @@ public class FichaEducativa implements Serializable {
 
     private String situacionPsicopedagogica;
 
-
     @Column(name = "fechaRegistro")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private Date fechaRegistro;
+
+    @Column(name = "anexosMatricula", columnDefinition = "TEXT")
+    private String anexosMatricula;
+
+    @Column(name = "anexosCalificaciones1", columnDefinition = "TEXT")
+    private String anexosCalificaciones1;
+
+    @Column(name = "anexosCalificaciones2", columnDefinition = "TEXT")
+    private String anexosCalificaciones2;
+
+    @Column(name = "anexosCalificaciones3", columnDefinition = "TEXT")
+    private String anexosCalificaciones3;
 
     @ManyToOne
     @JoinColumn(name = "idFichaPersonal")

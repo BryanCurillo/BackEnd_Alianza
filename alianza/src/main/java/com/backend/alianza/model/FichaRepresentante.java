@@ -74,6 +74,9 @@ public class FichaRepresentante {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private java.sql.Date fechaRegistro;
 
+    @Column(name = "anexosCedulaPPFF", columnDefinition = "TEXT")
+    private String anexosCedulaPPFF;
+
     @ManyToOne
     @JoinColumn(name = "idFichaPersonal")
     private FichaPersonal fichaPersonal;

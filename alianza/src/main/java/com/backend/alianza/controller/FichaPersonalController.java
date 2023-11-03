@@ -169,7 +169,6 @@ public class FichaPersonalController {
 
     @GetMapping("/gelAllByEst/{est}")
     public ResponseEntity<List<FichaPersonal>> gelAllByEst(@PathVariable boolean est) {
-
         return new ResponseEntity<>(service.gelAllByEst(est), HttpStatus.OK);
     }
 
@@ -251,7 +250,6 @@ public class FichaPersonalController {
                 fichaPersonal.setZona(fp.getZona());
                 fichaPersonal.setActTrabInfantil(fp.isActTrabInfantil());
                 fichaPersonal.setDetalleActTrabInfantil(fp.getDetalleActTrabInfantil());
-
                 fichaPersonal.setBarrioSector(fp.getBarrioSector());
                 fichaPersonal.setDireccion(fp.getDireccion());
                 fichaPersonal.setReferencia(fp.getReferencia());
@@ -262,7 +260,8 @@ public class FichaPersonalController {
                 fichaPersonal.setParroquia(fp.getParroquia());
                 fichaPersonal.setEstVinculacion(fp.isEstVinculacion());
                 fichaPersonal.setFechaRegistro(fp.getFechaRegistro());
-
+                fichaPersonal.setAnexosCedula(fp.getAnexosCedula());
+                fichaPersonal.setAnexosDocumentosLegales(fp.getAnexosDocumentosLegales());
                 return new ResponseEntity<>(service.save(fichaPersonal), HttpStatus.CREATED);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
